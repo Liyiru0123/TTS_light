@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "source_dataset": "data/datasets/p1_w03_v1",
+  "source_image": "data/images/p1_w04_v1",
+  "source_speech": "data/speech/p1_w05_v1",
+  "source_video": "data/video/p1_w06_v1",
+  "output": "data/multimodal/p1_w07_v1",
+  "default_modalities": ["text", "image", "speech", "video"],
+  "cache_max_bytes": 67108864,
+  "schema_description": "P1-W07 unified scene and QA views"
+}

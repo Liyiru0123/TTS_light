@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "work_package": "P2-W04",
+  "iteration": "I005",
+  "base_config": "configs/p2_w04_tiny_image_ldm_v2.json",
+  "goal_document": "docs/P2-W04_I005目标论证.md",
+  "parent_iteration": "I004",
+  "warmstart_branch": "control",
+  "formal_branches": [
+    "continuation",
+    "clean_refiner"
+  ],
+  "frozen_assets": {
+    "vae": "results/P2-W02_image_vae/checkpoints/best.pt",
+    "warmstart": "results/P2-W04_tiny_image_ldm/revision_v2/training_attempt3_control/checkpoints/best.pt",
+    "training_data": "data/ldm/p2_w04_v2",
+    "evaluation_data": "data/ldm/p2_w04_eval_v2",
+    "thresholds": "results/P2-W04_tiny_image_ldm/revision_v2/threshold_freeze.json",
+    "shape_prototypes": "results/P2-W04_tiny_image_ldm/revision_v2/evaluator_shape_templates.npz"
+  },
+  "sampling_preflight": {
+    "output": "results/P2-W04_tiny_image_ldm/planning/I005/sampling_preflight",
+    "seen_batch_count": 6,
+    "unseen_batch_count": 3,
+    "batch_size": 8,
+    "settings": [
+      {
+        "id": "baseline",
+        "sample_steps": 25,
+        "guidance_scale": 2.0
+      },
+      {
+        "id": "more_steps",
+        "sample_steps": 50,
+        "guidance_scale": 2.0
+      },
+      {
+        "id": "lower_cfg",
+        "sample_steps": 25,
+        "guidance_scale": 1.5
+      },
+      {
+        "id": "higher_cfg",
+        "sample_steps": 25,
+        "guidance_scale": 2.5
+      }
+    ],
+    "shortlist_minimum_deltas_on_seen": {
+      "count_successes": 3,
+      "accepted_shape_successes": 2,
+      "fully_correct_successes": 2,
+      "position_successes": -2
+    },
+    "shortlist_minimum_deltas_on_unseen": {
+      "accepted_shape_successes": -1,
+      "fully_correct_successes": -1
+    },
+    "shortlist_ranking": [
+      "seen_fully_correct_delta",
+      "seen_count_delta",
+      "seen_accepted_shape_delta",
+      "unseen_fully_correct_delta",
+      "unseen_accepted_shape_delta"
+    ]
+  },
+  "resource_limits": {
+    "max_parameters": 1500000,
+    "max_branch_wall_seconds": 900,
+    "max_peak_rss_bytes": 2147483648
+  },
+  "formal_sampling": {
+    "sample_steps": 25,
+    "guidance_scale": 2.5,
+    "basis": "the only sampler setting shortlisted by the frozen preflight; applied equally to both formal branches"
+  },
+  "clean_refiner": {
+    "hidden_channels": 32,
+    "residual_blocks": 2,
+    "max_residual": 0.25,
+    "max_active_timestep": 35,
+    "condition_dropout": 0.1,
+    "max_geometry_samples_per_batch": 16,
+    "loss_weights": {
+      "latent": 1.0,
+      "foreground": 0.2,
+      "boundary": 0.05,
+      "residual_regularization": 0.01
+    },
+    "learning_rate": 0.0003,
+    "weight_decay": 0.00001,
+    "overfit_epochs": 120,
+    "overfit_count": 32,
+    "finetune_epochs": 16,
+    "joint_denoiser_finetuning": false
+  },
+  "overfit_gates": {
+    "refined_clean_loss_ratio_max": 0.85,
+    "foreground_loss_ratio_max": 0.98,
+    "boundary_loss_ratio_max": 0.98,
+    "maximum_fragment_increase": 0,
+    "maximum_position_correct_decrease": 1,
+    "minimum_target_shape_margin_increase": 0.005,
+    "semantic_improvement_policy": "at least one of: fewer fragments, more count-correct samples, more accepted target shapes, or the configured mean target-shape-margin increase"
+  },
+  "formal_control": {
+    "seed_offset": 500,
+    "evaluation_seed_offset": 60000,
+    "batch_size": 64,
+    "balanced_single_object_sampling": true,
+    "same_initial_noise_across_branches": true,
+    "overfit_weights_reused_in_formal_training": false,
+    "automatic_candidate_selection": false
+  }
+}

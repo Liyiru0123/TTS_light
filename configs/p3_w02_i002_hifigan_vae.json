@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "work_package": "P3-W02",
+  "iteration_id": "I002",
+  "branch_id": "hifigan_vae",
+  "seed": 20260818,
+  "device": "cpu",
+  "cpu_threads": 8,
+  "source_speech": "data/speech/p1_w05_v1",
+  "source_asr": "data/asr/p2_w05_v1",
+  "output_data": "data/speech_vae/p3_w02_hifigan_v2",
+  "output_latents": "data/latents/p3_w02_hifigan_v2",
+  "output_results": "results/P3-W02_speech_vae/iterations/I002/branches/hifigan_vae",
+  "hifigan_weight": "models/external/hifigan_v3_ljspeech/hifigan_vocoder_v3_ljspeech.pth",
+  "i001_branch": "results/P3-W02_speech_vae/iterations/I001/branches/spectral_vae",
+  "pf001_dir": "results/P3-W02_speech_vae/preflight/PF001_hifigan",
+  "window": {
+    "frames": 256,
+    "hop_frames": 192,
+    "minimum_valid_frames": 64,
+    "padding_value": -11.512925148010254
+  },
+  "feature": {
+    "n_mels": 80,
+    "minimum_logmel": -11.512925148010254,
+    "maximum_logmel": 2.5,
+    "sample_rate": 22050,
+    "n_fft": 1024,
+    "win_length": 1024,
+    "hop_length": 256,
+    "fmin": 0.0,
+    "fmax": 8000.0,
+    "mel_scale": "slaney",
+    "norm": "slaney",
+    "center": false,
+    "reflect_padding": 384,
+    "log_floor": 0.00001
+  },
+  "model": {
+    "base_channels": 16,
+    "latent_channels": 4,
+    "logvar_min": -8.0,
+    "logvar_max": 4.0,
+    "n_mels": 80,
+    "window_frames": 256
+  },
+  "loss": {
+    "reconstruction_weight": 1.0,
+    "temporal_delta_weight": 0.25,
+    "kl_weight": 0.00001
+  },
+  "training": {
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "epochs": 10,
+    "overfit_windows": 16,
+    "overfit_updates": 240,
+    "gradient_clip_norm": 5.0
+  },
+  "evaluation_record_ids": [
+    "core_scene_000700:speech:f0",
+    "core_scene_000701:speech:f0",
+    "core_scene_000702:speech:f0",
+    "core_scene_000703:speech:f0",
+    "core_scene_000704:speech:f0",
+    "core_scene_000705:speech:f0",
+    "core_scene_000706:speech:f0",
+    "core_scene_000707:speech:f0",
+    "core_scene_000708:speech:f0",
+    "core_scene_000709:speech:f0",
+    "core_scene_000710:speech:f0",
+    "core_scene_000711:speech:f0"
+  ],
+  "thresholds": {
+    "minimum_total_windows": 7000,
+    "minimum_train_windows": 5000,
+    "overfit_normalized_mae_max": 0.08,
+    "test_normalized_mae_max": 0.12,
+    "test_logmel_mae_max": 1.0,
+    "test_delta_mae_max": 1.5,
+    "minimum_kl": 0.00001,
+    "maximum_overlap_boundary_mae": 1.5,
+    "maximum_waveform_cycle_logmel_mae": 4.5,
+    "maximum_asr_reconstruction_cer": 0.1,
+    "maximum_duration_relative_error": 0.05,
+    "maximum_parameters": 1000000,
+    "maximum_wall_seconds": 2400,
+    "maximum_peak_rss_bytes": 2684354560,
+    "maximum_hifigan_rtf": 1.0
+  }
+}
+

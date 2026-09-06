@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "iteration_id": "I002",
+  "parent_iteration": "I001",
+  "seed": 20260817,
+  "device": "cpu",
+  "cpu_threads": 8,
+  "source_asr_data": "data/asr/p2_w05_v1",
+  "source_speech": "data/speech/p1_w05_v1",
+  "output_data": "data/asr/p2_w05_i002_v1",
+  "output_results": "results/P2-W05_tiny_asr",
+  "initial_checkpoint": "results/P2-W05_tiny_asr/iterations/I001/branches/baseline/checkpoints/best.pt",
+  "model": {
+    "n_mels": 64,
+    "d_model": 96,
+    "num_heads": 4,
+    "ff_dim": 192,
+    "num_blocks": 2,
+    "conv_kernel_size": 15,
+    "dropout": 0.1,
+    "subsampling_factor": 8
+  },
+  "augmentation": {
+    "clean_copies_per_source": 1,
+    "noisy_copies_per_source": 1,
+    "noise_snr_db_min": 8.0,
+    "noise_snr_db_max": 25.0,
+    "noise_distribution": "deterministic_white_gaussian_per_utterance",
+    "specaugment_probability": 0.3,
+    "frequency_mask_count": 1,
+    "frequency_mask_max_width": 4,
+    "time_mask_count": 1,
+    "time_mask_max_width": 12
+  },
+  "training": {
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "epochs": 8,
+    "early_stopping_patience": 3,
+    "overfit_count": 16,
+    "overfit_epochs": 240
+  },
+  "selection": {
+    "clean_validation_weight": 0.25,
+    "noise_validation_weight": 1.0,
+    "noise_validation_view": "text_nonoverlap_validation_first60_15db"
+  },
+  "evaluation": {
+    "stress_seed": 20260816,
+    "noise_snr_db": 15.0,
+    "additional_noise_snr_db": [10.0, 20.0],
+    "speed_factors": [0.9, 1.1],
+    "stress_sample_count": 60,
+    "example_count": 12
+  },
+  "thresholds": {
+    "overfit_cer_max": 0.05,
+    "regular_validation_cer_max": 0.02,
+    "regular_test_cer_max": 0.02,
+    "asset_nonoverlap_test_cer_max": 0.02,
+    "text_nonoverlap_test_cer_max": 0.03,
+    "compositional_test_cer_max": 0.03,
+    "clean_test_cer_increase_over_i001_max": 0.01,
+    "text_nonoverlap_test_cer_increase_over_i001_max": 0.01,
+    "noise_cer_increase_max": 0.20,
+    "noise_cer_absolute_improvement_over_i001_min": 0.20,
+    "speed_cer_increase_max": 0.20,
+    "max_trainable_parameters": 1000000,
+    "max_wall_seconds": 1800,
+    "max_peak_rss_bytes": 2147483648
+  }
+}

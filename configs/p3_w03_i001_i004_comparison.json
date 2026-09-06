@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "work_package": "P3-W03",
+  "experiment": "I001_vs_I004_objective_comparison",
+  "device": "cpu",
+  "cpu_threads": 8,
+  "seed": 20260824,
+  "bootstrap_seed": 20260825,
+  "bootstrap_samples": 5000,
+  "factors": [0.8, 1.0, 1.2],
+  "tracks": ["controlled_duration", "end_to_end"],
+  "preflight_units": 24,
+  "formal_units": 120,
+  "ode_steps": 20,
+  "i001_checkpoint": "results/P3-W03_tiny_tts/iterations/I001_archive/checkpoints/best.pt",
+  "i004_checkpoint": "results/P3-W03_tiny_tts/iterations/I004/branches/supported_rate/checkpoints/best.pt",
+  "unit_manifest": "data/speech/p3_w03_tiny_tts_v1/unit_manifest.jsonl",
+  "vocabulary": "data/speech/p3_w03_tiny_tts_v1/vocabulary.json",
+  "output_results": "results/P3-W03_tiny_tts/comparisons/I001_vs_I004",
+  "thresholds": {
+    "asr_min_character_accuracy": 0.8,
+    "asr_min_keyword_accuracy": 0.8,
+    "normal_noninferiority_relative_margin": 0.05,
+    "end_to_end_relative_margin": 0.05,
+    "duration_ratio_error_max": 0.02,
+    "clipping_rate_max": 0.01
+  }
+}

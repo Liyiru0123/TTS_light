@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "work_package": "P3-W01",
+  "iteration_id": "I002",
+  "branch_id": "temporal_core",
+  "seed": 20260817,
+  "data": {
+    "output_dir": "data/video_qa/p3_w01_v1",
+    "source_p1_video_manifest": "data/video/p1_w06_v1/manifest.json",
+    "frame_count": 8,
+    "fps": 4,
+    "height": 64,
+    "width": 64,
+    "split_counts": {"train": 1200, "validation": 240, "test": 300},
+    "question_kinds": ["motion_direction", "appear_order", "disappear_order", "move_start_order"],
+    "order_answers": ["前者更早", "后者更早", "同时发生"],
+    "direction_answers": ["向左移动", "向右移动", "向上移动", "向下移动", "保持静止"],
+    "overfit_count": 32,
+    "overfit_ids_path": "data/video_qa/p3_w01_v1/overfit_ids_balanced.json"
+  },
+  "model": {
+    "d_model": 64,
+    "num_heads": 4,
+    "ff_dim": 128,
+    "text_layers": 1,
+    "temporal_layers": 2,
+    "decoder_layers": 1,
+    "dropout": 0.1,
+    "spatial_grid": 8,
+    "max_question_length": 48,
+    "max_answer_length": 8
+  },
+  "training": {
+    "batch_size": 24,
+    "epochs": 18,
+    "overfit_epochs": 120,
+    "baseline_epochs": 10,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "classification_loss_weight": 1.0,
+    "generation_loss_weight": 1.0,
+    "num_workers": 0,
+    "cpu_threads": 8
+  },
+  "acceptance": {
+    "overfit_classification_accuracy_min": 0.95,
+    "overfit_generation_accuracy_min": 0.90,
+    "test_classification_accuracy_min": 0.70,
+    "test_generation_accuracy_min": 0.60,
+    "per_kind_classification_accuracy_min": 0.55,
+    "multimodal_advantage_over_text_min": 0.25,
+    "multimodal_advantage_over_single_frame_min": 0.15,
+    "frame_shuffle_drop_min": 0.10,
+    "no_time_position_drop_min": 0.10,
+    "no_temporal_module_drop_min": 0.10,
+    "reversal_pair_consistency_min": 0.70,
+    "trainable_parameters_max": 1000000,
+    "wall_seconds_max": 1800,
+    "peak_rss_bytes_max": 2147483648
+  }
+}

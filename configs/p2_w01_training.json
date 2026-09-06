@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "seed": 20260807,
+  "device": "cpu",
+  "cpu_threads": 4,
+  "source_index": "data/multimodal/p1_w07_v1",
+  "output_data": "data/training/p2_w01_v1",
+  "output_results": "results/P2-W01_training_framework",
+  "baseline": {
+    "classes": ["circle", "square", "triangle", "rectangle", "pentagon"],
+    "batch_size": 32,
+    "learning_rate": 0.003,
+    "weight_decay": 0.0001,
+    "epochs": 20,
+    "gradient_clip_norm": 5.0,
+    "overfit_examples_per_class": 4,
+    "overfit_epochs": 80
+  },
+  "thresholds": {
+    "overfit_accuracy": 0.95,
+    "validation_accuracy": 0.70,
+    "counterfactual_accuracy": 0.70,
+    "compositional_accuracy": 0.70,
+    "cue_only_iid_accuracy": 0.85,
+    "cue_only_counterfactual_max_accuracy": 0.10,
+    "max_wall_seconds": 300,
+    "max_peak_rss_bytes": 2147483648
+  }
+}

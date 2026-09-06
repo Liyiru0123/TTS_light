@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# 虚拟环境
+.venv/
+venv/
+
+# 本地生成数据（由学生用代码生成，不入库）
+data/
+
+# 运行/调试临时产物
+*.log
+.tmp_*/
+tmp_*/
+*.bak
+nul
+
+# 编辑器与系统文件
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

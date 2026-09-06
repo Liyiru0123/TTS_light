@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "work_package": "P3-W03",
+  "model_name": "TinySpeechFlow",
+  "seed": 20260820,
+  "device": "cpu",
+  "cpu_threads": 8,
+  "source_speech": "data/speech/p1_w05_v1",
+  "source_speech_vae": "data/speech_vae/p3_w02_hifigan_v2",
+  "speech_vae_package": "results/P3-W02_speech_vae/iterations/I002/branches/hifigan_vae/inference_package.pt",
+  "asr_package": "results/P2-W05_tiny_asr/iterations/I002/branches/robust_finetune/inference_package.pt",
+  "hifigan_weight": "models/external/hifigan_v3_ljspeech/hifigan_vocoder_v3_ljspeech.pth",
+  "output_data": "data/speech/p3_w03_tiny_tts_v1",
+  "output_results": "results/P3-W03_tiny_tts",
+  "pf001_dir": "results/P3-W03_tiny_tts/preflight/PF001_gate_a",
+  "pf002_dir": "results/P3-W03_tiny_tts/preflight/PF002_gate_b",
+  "unit": {
+    "min_seconds": 1.0,
+    "max_seconds": 3.0,
+    "frames_per_second": 86.1328125,
+    "min_frames": 86,
+    "max_frames": 256,
+    "target_frames": 120,
+    "target_train_units": [8000, 15000]
+  },
+  "container": {
+    "t_max": 64,
+    "mel_window": 256,
+    "latent_channels": 4,
+    "latent_freq": 20,
+    "time_compression": 4,
+    "nominal_bin_center": "4*j + 2"
+  },
+  "feature": {
+    "n_mels": 80,
+    "minimum_logmel": -11.512925148010254,
+    "maximum_logmel": 2.5,
+    "sample_rate": 22050,
+    "n_fft": 1024,
+    "win_length": 1024,
+    "hop_length": 256,
+    "fmin": 0.0,
+    "fmax": 8000.0,
+    "padding_value": -11.512925148010254
+  },
+  "asr_feature": {
+    "n_mels": 64,
+    "n_fft": 512,
+    "hop_length": 256,
+    "fmin": 40.0,
+    "fmax": 8000.0
+  },
+  "text_encoder": {
+    "d_text": 64,
+    "num_layers": 2,
+    "num_heads": 4,
+    "ff_dim": 128,
+    "dropout": 0.1,
+    "max_tokens": 40
+  },
+  "duration": {
+    "d_text": 64,
+    "hidden": 64
+  },
+  "condition": {
+    "d_text": 64,
+    "latent_channels": 80
+  },
+  "unet": {
+    "in_channels": 80,
+    "base_channels": 128,
+    "down_channels": 192,
+    "time_embed_dim": 128
+  },
+  "cfm": {
+    "path": "linear",
+    "t_sampling": "uniform",
+    "ode_steps": 20,
+    "velocity_target": "x1 - x0"
+  },
+  "loss": {
+    "cfm_weight": 1.0,
+    "duration_weight": 1.0
+  },
+  "training": {
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "epochs": 12,
+    "overfit_units": 16,
+    "overfit_updates": 4000,
+    "gradient_clip_norm": 5.0,
+    "warmup_steps": 100
+  },
+  "duration_augmentation": {
+    "enabled": true,
+    "factor_min": 0.7,
+    "factor_max": 1.3,
+    "clean_probability": 0.5,
+    "note": "I002: CFM 训练时按概率随机缩放条件时长并在目标 x1 内逐字符重采样，使模型对时长倍率鲁棒（rate control 分布内）"
+  },
+  "evaluation_record_ids": ["composition_scene_000633#u005", "shortcut_scene_000486#u005", "core_scene_000769#u008", "shortcut_scene_000570#u002", "core_scene_000753#u010", "core_scene_000770#u000", "core_scene_000733#u003", "core_scene_000758#u003"],
+  "overfit_unit_ids": ["core_scene_000000#u000", "core_scene_000000#u001", "core_scene_000000#u002", "core_scene_000000#u003", "core_scene_000000#u004", "core_scene_000000#u005", "core_scene_000000#u006", "core_scene_000000#u007", "core_scene_000000#u008", "core_scene_000001#u000", "core_scene_000001#u001", "core_scene_000001#u002", "core_scene_000001#u003", "core_scene_000001#u004", "core_scene_000001#u005", "core_scene_000002#u000"],
+  "thresholds": {
+    "minimum_train_units": 8000,
+    "maximum_train_units": 15000,
+    "unit_frame_min": 86,
+    "unit_frame_max": 256,
+    "tvalid_min": 1,
+    "tvalid_max": 64,
+    "max_content_zero_duration_rate": 0.02,
+    "overfit_velocity_mae_drop_min": 0.5,
+    "overfit_asr_cer_gap_max": 0.1,
+    "padding_compat_max": 0.05,
+    "cer_gap_to_baseline_max": 0.10,
+    "duration_mean_rel_error_max": 0.05,
+    "duration_cer_gap_max": 0.05,
+    "maximum_parameters": 1000000,
+    "maximum_wall_seconds": 3600,
+    "maximum_peak_rss_bytes": 2684354560,
+    "maximum_hifigan_rtf": 1.0
+  }
+}

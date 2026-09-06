@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "work_package": "P3-W05",
+  "dimensions": ["data_modality", "architecture", "training_objective", "pretrain_instruction_posttrain", "inference_sampling_control", "evaluation", "engineering_deployment", "capability_generalization_quality"],
+  "models": {
+    "tiny_vlm": {
+      "data_modality": "统一世界64×64程序图像和封闭中文问答；不含自然图像、OCR、文档或开放对话。",
+      "architecture": "保留视觉Token、文本Token、Self/Cross-Attention和因果Decoder；规模远小于真实MLLM且无大语言模型主干。",
+      "training_objective": "分类交叉熵、因果Token损失和接地监督；未采用大规模图文对比预训练和多任务混合。",
+      "pretrain_instruction_posttrain": "图像VAE冻结；无互联网图文预训练、指令微调、偏好优化或安全后训练。",
+      "inference_sampling_control": "封闭问题分类和贪心字符生成；无长上下文、多轮对话、工具调用或开放解码策略。",
+      "evaluation": "固定VQA、生成完全一致、接地和消融；不代表真实VQA、幻觉或开放问答能力。",
+      "engineering_deployment": "CPU单样例、项目内权重；无量化服务、批处理调度、监控和安全隔离。",
+      "capability_generalization_quality": "能展示对齐、融合、捷径和组合泛化；知识、复杂推理和自然图像泛化不在范围。"
+    },
+    "tiny_image_ldm": {
+      "data_modality": "统一世界64×64单/少对象封闭条件；不含真实照片、长文本和广泛视觉概念。",
+      "architecture": "保留VAE潜空间、加噪、时间编码、U-Net和Cross-Attention；缺少大文本编码器、深层多尺度DiT/U-Net。",
+      "training_objective": "条件噪声预测并使用结构化前景加权；无感知/对抗VAE训练、蒸馏或流匹配目标。",
+      "pretrain_instruction_posttrain": "使用课程图像VAE和本地训练；无大规模预训练、审美对齐、安全后训练。",
+      "inference_sampling_control": "固定25步DDIM式采样和CFG 2.5；无负面提示、ControlNet、LoRA或高阶采样器。",
+      "evaluation": "封闭颜色/形状/大小/数量/位置评价；数量、形状、多对象和联合正确性仍未过严格冻结阈值。",
+      "engineering_deployment": "CPU低分辨率顺序推理；无高分辨率级联、显存优化、服务化和内容安全。",
+      "capability_generalization_quality": "人眼通常可辨识主要对象但几何不精确；不支持真实场景、开放组合或照片级质量。"
+    },
+    "tiny_asr": {
+      "data_modality": "单一合成说话人、固定句式和程序白噪声；无真实录音、口音、混响、远场和多说话人。",
+      "architecture": "保留Log-Mel、变长Mask、卷积下采样、Conformer式编码和CTC；无大规模Encoder-Decoder和语言模型融合。",
+      "training_objective": "字符CTC加匹配白噪声/SpecAugment；无多任务语音翻译、伪标签或大规模弱监督。",
+      "pretrain_instruction_posttrain": "从课程数据训练；无语音基础模型预训练、指令跟随或领域适配后训练。",
+      "inference_sampling_control": "CTC贪心解码；无Beam Search、外部语言模型、流式状态和说话人分离。",
+      "evaluation": "CER、完全正确率和合成扰动；低CER不能保证左右等关键字绝不出错，也不外推真实环境。",
+      "engineering_deployment": "CPU短句离线推理；无流式延迟、端点检测、并发服务和设备校准。",
+      "capability_generalization_quality": "封闭同源分布很强；速度扰动仍明显，真实多域泛化未建立。"
+    },
+    "tiny_speech_flow": {
+      "data_modality": "单合成声线、46字符、1—3秒片段和固定句式；无开放中文、韵律标签和多说话人。",
+      "architecture": "保留文本编码、时长预测、Length Regulator、帧条件、CFM和ODE采样；冻结课程VAE与外部HiFi-GAN。",
+      "training_objective": "时长损失加linear CFM速度场；不是OT-CFM，也无音色、韵律、说话人和对抗目标。",
+      "pretrain_instruction_posttrain": "声学潜空间由P3-W02提供，声码器为外部英文权重；无大规模多说话人预训练和偏好后训练。",
+      "inference_sampling_control": "支持有限倍率时长缩放与20步ODE；词表外字符会被静默过滤，必须前置检查。",
+      "evaluation": "时长误差、冻结链差距、ASR回译和教师试听；短片段绝对CER不稳定，I004以教学听感验收。",
+      "engineering_deployment": "CPU短语离线合成；无实时流式、多音色服务、长文本分句和异常输入防护。",
+      "capability_generalization_quality": "支持明显快慢和基本可懂语音；极端倍率、开放字符、自然韵律和音色控制不可靠。"
+    },
+    "tiny_video_mllm": {
+      "data_modality": "8帧64×64程序视频和封闭时序问题；无真实视频、音轨、字幕、相机运动和长视频。",
+      "architecture": "保留逐帧编码、时间位置、时空/对象Query、连接器和因果Decoder；无大视觉/语言基础模型。",
+      "training_objective": "分类、Token生成和起动帧辅助监督；无大规模视频文本对比、指令数据和多任务混合。",
+      "pretrain_instruction_posttrain": "课程数据端到端训练；无视频基础模型预训练、指令微调、偏好或安全后训练。",
+      "inference_sampling_control": "固定8帧与封闭字符问题，贪心生成；非move_start_order题型的起点头没有监督语义。",
+      "evaluation": "固定题型准确率、生成一致率和时间模块消融；未校准为P3-W04生成视频的通用裁判。",
+      "engineering_deployment": "CPU短视频离线推理；无视频解码服务、长序列缓存、检索和并发调度。",
+      "capability_generalization_quality": "能回答必须依赖时间的信息；开放事件、真实动作、复杂因果和跨场景知识不在范围。"
+    },
+    "tiny_t2v": {
+      "data_modality": "8帧64×64、单对象、单运动段和封闭中文/结构化轨迹；无真实视频和复杂叙事。",
+      "architecture": "保留LDM生成外观、显式运动执行和AnimateDiff式两次维度变换；时间模块仅单层4通道门。",
+      "training_objective": "只训练4个时间门参数，外观LDM与解码链冻结；精确动力学不是从开放文本端到端学习。",
+      "pretrain_instruction_posttrain": "继承课程图像LDM，无视频大规模预训练、指令对齐、审美或安全后训练。",
+      "inference_sampling_control": "结构化逐帧轨迹控制方向与启停，时间注意力改善一致性；不是开放文本运动规划器。",
+      "evaluation": "校准像素轨迹、方向、启停、外观属性和闪烁；VideoQA不作验收裁判，形状继承LDM边界。",
+      "engineering_deployment": "CPU短片顺序生成；无长视频、分块去噪、显存优化、相机控制和服务化。",
+      "capability_generalization_quality": "方向启停准确且五类形状可辨，但形状会歪斜；多对象遮挡、长时一致性和开放动作未验证。"
+    }
+  }
+}

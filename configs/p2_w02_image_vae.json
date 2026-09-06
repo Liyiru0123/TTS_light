@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "seed": 20260807,
+  "device": "cpu",
+  "cpu_threads": 8,
+  "source_index": "data/multimodal/p1_w07_v1",
+  "source_images": "data/images/p1_w04_v1",
+  "source_shape_checkpoint": "results/P2-W01_training_framework/checkpoints/best.pt",
+  "output_data": "data/vae/p2_w02_v1",
+  "output_latents": "data/latents/p2_w02_v1",
+  "output_results": "results/P2-W02_image_vae",
+  "model": {
+    "base_channels": 24,
+    "latent_channels": 4,
+    "downsample_factor": 4,
+    "logvar_min": -8.0,
+    "logvar_max": 4.0
+  },
+  "loss": {
+    "global_weight": 0.0,
+    "global_mse_weight": 1.0,
+    "foreground_weight": 0.0,
+    "background_weight": 0.0,
+    "edge_weight": 0.0,
+    "kl_weight": 0.0001
+  },
+  "ablation_loss": {
+    "global_weight": 0.20,
+    "global_mse_weight": 0.0,
+    "foreground_weight": 0.40,
+    "background_weight": 0.15,
+    "edge_weight": 0.25,
+    "kl_weight": 0.0001
+  },
+  "training": {
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "epochs": 18,
+    "gradient_clip_norm": 5.0,
+    "overfit_count": 20,
+    "overfit_epochs": 60,
+    "ablation_epochs": 8
+  },
+  "thresholds": {
+    "overfit_reconstruction_ratio": 0.25,
+    "overfit_foreground_mae": 0.10,
+    "global_mae": 0.035,
+    "foreground_mae": 0.12,
+    "background_mae": 0.025,
+    "mask_iou": 0.60,
+    "color_accuracy": 0.85,
+    "shape_accuracy": 0.70,
+    "small_foreground_mae": 0.15,
+    "small_color_accuracy": 0.75,
+    "ablation_improvement": 0.05,
+    "compression_degradation": 0.03,
+    "minimum_kl": 0.00001,
+    "latent_decode_mae": 0.003,
+    "max_parameters": 1000000,
+    "max_wall_seconds": 300,
+    "max_peak_rss_bytes": 2147483648
+  }
+}

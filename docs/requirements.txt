@@ -1,0 +1,11 @@
+# 最小系统依赖（按需精简）
+# 观察/张量演示（U01）：numpy, soundfile, Pillow, matplotlib
+# 跑模型（推理/训练）：torch, torchaudio
+# 数据生成：需 Windows 系统自带 "Microsoft Huihui Desktop" 语音（SAPI，无需 pip）
+numpy
+soundfile
+Pillow
+matplotlib
+torch
+torchaudio
+PyYAML

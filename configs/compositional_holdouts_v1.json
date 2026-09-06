@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "policy_id": "color_shape_compositional_holdouts_v1",
+  "authority": {
+    "path": "data/datasets/p1_w03_v1/manifest.json",
+    "json_path": "$.compositional_report.holdout_pairs"
+  },
+  "colors": ["red", "blue", "green", "yellow", "purple", "orange"],
+  "shapes": ["circle", "square", "triangle", "rectangle", "pentagon"],
+  "holdout_pairs": [
+    "blue|square",
+    "green|triangle",
+    "purple|pentagon",
+    "red|circle",
+    "yellow|rectangle"
+  ],
+  "allowed_training_pairs": [
+    "blue|circle",
+    "blue|pentagon",
+    "blue|rectangle",
+    "blue|triangle",
+    "green|circle",
+    "green|pentagon",
+    "green|rectangle",
+    "green|square",
+    "orange|circle",
+    "orange|pentagon",
+    "orange|rectangle",
+    "orange|square",
+    "orange|triangle",
+    "purple|circle",
+    "purple|rectangle",
+    "purple|square",
+    "purple|triangle",
+    "red|pentagon",
+    "red|rectangle",
+    "red|square",
+    "red|triangle",
+    "yellow|circle",
+    "yellow|pentagon",
+    "yellow|square",
+    "yellow|triangle"
+  ],
+  "rules": {
+    "source_data_is_immutable": true,
+    "filter_entire_record_if_any_object_is_holdout": true,
+    "training_holdout_object_count_must_equal": 0,
+    "claim_requires_training_exclusion_and_evaluation_inclusion": true
+  },
+  "risk_notice": "完整P1训练集是多用途数据，不是全局组合留出集。任何模型若直接使用完整P1训练集，均不得把这5个颜色—形状对称为未见组合。"
+}
+

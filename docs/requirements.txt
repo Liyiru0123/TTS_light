@@ -1,6 +1,9 @@
 # 最小系统依赖（按需精简）
 # 观察/张量演示（U01）：numpy, soundfile, Pillow, matplotlib
 # 跑模型（推理/训练）：torch, torchaudio
+# 数据/视频流程：generate_p1_w01 需 torchvision（环境快照）；P1-W06 视频预览导出与
+#   P3-W01/P3-W04/运行时探针需 imageio + imageio-ffmpeg（mp4/gif 的 ffmpeg 后端）
+# 训练资源监控（部分训练/评估脚本）：psutil
 # 数据生成：需 Windows 系统自带 "Microsoft Huihui Desktop" 语音（SAPI，无需 pip）
 numpy
 soundfile
@@ -9,3 +12,8 @@ matplotlib
 torch
 torchaudio
 PyYAML
+torchvision
+imageio
+imageio-ffmpeg
+psutil
+# 可选：运行测试套件（tests/，或部分脚本末尾的 pytest 校验步骤）需 pytest

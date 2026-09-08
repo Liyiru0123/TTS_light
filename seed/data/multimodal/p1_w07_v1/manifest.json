@@ -1,0 +1,85 @@
+{
+  "artifact_version": 1,
+  "asset_verification": {
+    "asset_hash_mismatch_count": 0,
+    "checked_asset_bytes": 554035074,
+    "checked_asset_count": 6880,
+    "verified": true
+  },
+  "build_seconds": 2.9207003000192344,
+  "cache_max_bytes": 67108864,
+  "consistency": {
+    "asset_hash_mismatch_count": 0,
+    "continuous_center_mismatch_count": 0,
+    "cue_mismatch_count": 0,
+    "generation_condition_mismatch_count": 0,
+    "identity_mismatch_count": 0,
+    "image_video_pixel_center_different_scene_count": 23,
+    "max_image_video_pixel_center_delta": 1,
+    "object_attribute_mismatch_count": 0,
+    "object_identity_mismatch_count": 0,
+    "task_answer_mismatch_count": 0,
+    "text_speech_mismatch_count": 0
+  },
+  "default_modalities": [
+    "text",
+    "image",
+    "speech",
+    "video"
+  ],
+  "files": {
+    "fixed_batch.json": {
+      "bytes": 1989,
+      "sha256": "24b88cf317d37016703ce106ce0cb69b2ff5c966a6ade20ecc119ce556453f4b"
+    },
+    "sample_overview.png": {
+      "bytes": 313091,
+      "sha256": "582f06575d54d2d0c0b96de5bd3d2afe135eb16e0eaa11cda8afa8ed1a307959"
+    },
+    "scenes.jsonl": {
+      "bytes": 4766486,
+      "sha256": "e3ec0e03c9606fc127b5302c16564fd27d50f908fd3742412e16b27e25664beb"
+    }
+  },
+  "index_schema_version": 1,
+  "sources": {
+    "dataset": {
+      "manifest_sha256": "7f55caff85cf4b414ddbdb20fb330be0753890bda14c1676c2a90633fbb590a8",
+      "path": "data/datasets/p1_w03_v1"
+    },
+    "image": {
+      "manifest_sha256": "bd82a7cd0a28bcffcf32498ea02e6a2f7552014090cb89c589f42dc4c9f72b79",
+      "path": "data/images/p1_w04_v1"
+    },
+    "speech": {
+      "manifest_sha256": "dea06a9da4ba44a0726eb6297d7f69afea1bc2a931931923bcfd23197487ad7b",
+      "path": "data/speech/p1_w05_v1"
+    },
+    "video": {
+      "manifest_sha256": "5678bf69e2caf0067b7d507aa3e967cbb218dac437dae5f4b7f6edbbe01636be",
+      "path": "data/video/p1_w06_v1"
+    }
+  },
+  "statistics": {
+    "asset_reference_count": 6880,
+    "generation_condition_count": 5160,
+    "pool_scene_counts": {
+      "compositional": 460,
+      "core": 800,
+      "shortcut": 460
+    },
+    "qa_record_count": 11163,
+    "scene_count": 1720,
+    "split_scene_counts": {
+      "test": 300,
+      "train": 1200,
+      "validation": 220
+    },
+    "variant_scene_counts": {
+      "compositional": 460,
+      "counterfactual": 100,
+      "normal": 800,
+      "shortcut_iid": 360
+    }
+  }
+}

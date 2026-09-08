@@ -1,0 +1,296 @@
+{
+  "artifact_version": 1,
+  "compositional_report": {
+    "all_test_colors_seen_in_train": true,
+    "all_test_shapes_seen_in_train": true,
+    "holdout_pairs": [
+      "blue|square",
+      "green|triangle",
+      "purple|pentagon",
+      "red|circle",
+      "yellow|rectangle"
+    ],
+    "splits": {
+      "test": {
+        "composition_count": 5,
+        "record_count": 100,
+        "shape_counts": {
+          "circle": 20,
+          "pentagon": 20,
+          "rectangle": 20,
+          "square": 20,
+          "triangle": 20
+        }
+      },
+      "train": {
+        "composition_count": 25,
+        "record_count": 300,
+        "shape_counts": {
+          "circle": 60,
+          "pentagon": 60,
+          "rectangle": 60,
+          "square": 60,
+          "triangle": 60
+        }
+      },
+      "validation": {
+        "composition_count": 23,
+        "record_count": 60,
+        "shape_counts": {
+          "circle": 12,
+          "pentagon": 12,
+          "rectangle": 12,
+          "square": 12,
+          "triangle": 12
+        }
+      }
+    },
+    "test_holdout_coverage": [
+      "blue|square",
+      "green|triangle",
+      "purple|pentagon",
+      "red|circle",
+      "yellow|rectangle"
+    ],
+    "test_non_holdout_count": 0,
+    "train_colors": [
+      "blue",
+      "green",
+      "orange",
+      "purple",
+      "red",
+      "yellow"
+    ],
+    "train_holdout_leak_count": 0,
+    "train_shapes": [
+      "circle",
+      "pentagon",
+      "rectangle",
+      "square",
+      "triangle"
+    ],
+    "validation_holdout_leak_count": 0
+  },
+  "config": {
+    "base_seed": 20260807,
+    "compositional_test_scenes": 100,
+    "compositional_train_scenes": 300,
+    "compositional_validation_scenes": 60,
+    "core_test_scenes": 100,
+    "core_train_scenes": 600,
+    "core_validation_scenes": 100,
+    "holdout_pairs": [
+      [
+        "red",
+        "circle"
+      ],
+      [
+        "blue",
+        "square"
+      ],
+      [
+        "green",
+        "triangle"
+      ],
+      [
+        "yellow",
+        "rectangle"
+      ],
+      [
+        "purple",
+        "pentagon"
+      ]
+    ],
+    "max_scan_count": 100000,
+    "schema_version": 1,
+    "shortcut_strength": 0.9,
+    "shortcut_test_scenes": 100,
+    "shortcut_train_scenes": 300,
+    "shortcut_validation_scenes": 60
+  },
+  "files": {
+    "compositional_records.jsonl": {
+      "bytes": 324470,
+      "sha256": "5f2ca4b6f7d702ca6745db59b1f839067daf73a5cfec249f0ccd50e07a6850be"
+    },
+    "compositional_scenes.jsonl": {
+      "bytes": 191795,
+      "sha256": "9c5fc2d79554166cbb9a1161f7eb08aa12251aa25062a33a85c50e921123004c"
+    },
+    "core_records.jsonl": {
+      "bytes": 7015641,
+      "sha256": "220a043dbad4a15ba8b64f2d52ce9a28502f3b2837493262109d648fc75d64b0"
+    },
+    "core_scenes.jsonl": {
+      "bytes": 541359,
+      "sha256": "2068be41defa1d32f838f1c3c6ae28107f7144c47c1a2b5b4954119ace0a4a51"
+    },
+    "shortcut_records.jsonl": {
+      "bytes": 316127,
+      "sha256": "2c667973fca571b34ca46c13f7a780796578abf2528f19bad0becc356f7c3777"
+    },
+    "shortcut_scenes.jsonl": {
+      "bytes": 190896,
+      "sha256": "51cf4433005c76118ba52cfb7dc12ca078007234f7ccb0e07f0a2adda1e93f78"
+    }
+  },
+  "leakage_report": {
+    "duplicate_record_id_count": 0,
+    "duplicate_scene_id_count": 0,
+    "missing_scene_references": [],
+    "pools": {
+      "compositional": {
+        "question_intersections": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        },
+        "scene_intersections": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        }
+      },
+      "core": {
+        "question_intersections": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        },
+        "scene_intersections": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        }
+      },
+      "shortcut": {
+        "question_intersections": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        },
+        "scene_intersections": {
+          "train_test": 0,
+          "train_validation": 0,
+          "validation_test": 0
+        }
+      }
+    }
+  },
+  "shortcut_diagnostics": {
+    "learned_cue_to_shape": {
+      "cue_0": "circle",
+      "cue_1": "square",
+      "cue_2": "triangle",
+      "cue_3": "rectangle",
+      "cue_4": "pentagon"
+    },
+    "shape_to_cue": {
+      "circle": "cue_0",
+      "pentagon": "cue_4",
+      "rectangle": "cue_3",
+      "square": "cue_1",
+      "triangle": "cue_2"
+    },
+    "splits": {
+      "test": {
+        "aligned_count": 0,
+        "aligned_rate": 0.0,
+        "answer_counts": {
+          "circle": 20,
+          "pentagon": 20,
+          "rectangle": 20,
+          "square": 20,
+          "triangle": 20
+        },
+        "cue_only_accuracy": 0.0,
+        "majority_accuracy": 0.2,
+        "record_count": 100
+      },
+      "train": {
+        "aligned_count": 270,
+        "aligned_rate": 0.9,
+        "answer_counts": {
+          "circle": 60,
+          "pentagon": 60,
+          "rectangle": 60,
+          "square": 60,
+          "triangle": 60
+        },
+        "cue_only_accuracy": 0.9,
+        "majority_accuracy": 0.2,
+        "record_count": 300
+      },
+      "validation": {
+        "aligned_count": 55,
+        "aligned_rate": 0.9166666666666666,
+        "answer_counts": {
+          "circle": 12,
+          "pentagon": 12,
+          "rectangle": 12,
+          "square": 12,
+          "triangle": 12
+        },
+        "cue_only_accuracy": 0.9166666666666666,
+        "majority_accuracy": 0.2,
+        "record_count": 60
+      }
+    }
+  },
+  "statistics": {
+    "compositional": {
+      "record_count": 460,
+      "scene_count": 460,
+      "splits": {
+        "test": {
+          "record_count": 100,
+          "scene_count": 100
+        },
+        "train": {
+          "record_count": 300,
+          "scene_count": 300
+        },
+        "validation": {
+          "record_count": 60,
+          "scene_count": 60
+        }
+      }
+    },
+    "core": {
+      "record_count": 10243,
+      "scene_count": 800,
+      "splits": {
+        "test": {
+          "record_count": 1298,
+          "scene_count": 100
+        },
+        "train": {
+          "record_count": 7667,
+          "scene_count": 600
+        },
+        "validation": {
+          "record_count": 1278,
+          "scene_count": 100
+        }
+      }
+    },
+    "shortcut": {
+      "record_count": 460,
+      "scene_count": 460,
+      "splits": {
+        "test": {
+          "record_count": 100,
+          "scene_count": 100
+        },
+        "train": {
+          "record_count": 300,
+          "scene_count": 300
+        },
+        "validation": {
+          "record_count": 60,
+          "scene_count": 60
+        }
+      }
+    }
+  }
+}

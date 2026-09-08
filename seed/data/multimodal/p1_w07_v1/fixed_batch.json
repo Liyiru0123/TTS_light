@@ -1,0 +1,116 @@
+{
+  "contracts": [
+    {
+      "image_dtype": "uint8",
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "logmel_dtype": "float32",
+      "logmel_shape": [
+        64,
+        736
+      ],
+      "scene_id": "composition_scene_000000",
+      "video_dtype": "uint8",
+      "video_shape": [
+        8,
+        64,
+        64,
+        3
+      ],
+      "waveform_dtype": "float32",
+      "waveform_shape": [
+        188893
+      ]
+    },
+    {
+      "image_dtype": "uint8",
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "logmel_dtype": "float32",
+      "logmel_shape": [
+        64,
+        732
+      ],
+      "scene_id": "shortcut_scene_000444",
+      "video_dtype": "uint8",
+      "video_shape": [
+        8,
+        64,
+        64,
+        3
+      ],
+      "waveform_dtype": "float32",
+      "waveform_shape": [
+        187683
+      ]
+    },
+    {
+      "image_dtype": "uint8",
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "logmel_dtype": "float32",
+      "logmel_shape": [
+        64,
+        1155
+      ],
+      "scene_id": "core_scene_000000",
+      "video_dtype": "uint8",
+      "video_shape": [
+        8,
+        64,
+        64,
+        3
+      ],
+      "waveform_dtype": "float32",
+      "waveform_shape": [
+        296126
+      ]
+    },
+    {
+      "image_dtype": "uint8",
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "logmel_dtype": "float32",
+      "logmel_shape": [
+        64,
+        724
+      ],
+      "scene_id": "shortcut_scene_000000",
+      "video_dtype": "uint8",
+      "video_shape": [
+        8,
+        64,
+        64,
+        3
+      ],
+      "waveform_dtype": "float32",
+      "waveform_shape": [
+        185699
+      ]
+    }
+  ],
+  "scene_ids": [
+    "composition_scene_000000",
+    "shortcut_scene_000444",
+    "core_scene_000000",
+    "shortcut_scene_000000"
+  ],
+  "variants": [
+    "compositional",
+    "counterfactual",
+    "normal",
+    "shortcut_iid"
+  ]
+}

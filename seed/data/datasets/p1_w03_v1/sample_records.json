@@ -1,0 +1,407 @@
+{
+  "compositional_test": [
+    {
+      "composition_key": "green|triangle",
+      "cue_aligned": null,
+      "cue_token": null,
+      "record_id": "compositional:test:composition_scene_000540:q:object_shape:obj_0:f0",
+      "schema_version": 1,
+      "split": "test",
+      "task": {
+        "answer": {
+          "derivation": "read_object_shape",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "triangle"
+        },
+        "answer_zh": "三角形",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_shape",
+          "question_id": "composition_scene_000540:q:object_shape:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "composition_scene_000540",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么形状？",
+        "record_type": "qa"
+      },
+      "variant": "compositional"
+    },
+    {
+      "composition_key": "green|triangle",
+      "cue_aligned": null,
+      "cue_token": null,
+      "record_id": "compositional:test:composition_scene_000542:q:object_shape:obj_0:f0",
+      "schema_version": 1,
+      "split": "test",
+      "task": {
+        "answer": {
+          "derivation": "read_object_shape",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "triangle"
+        },
+        "answer_zh": "三角形",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_shape",
+          "question_id": "composition_scene_000542:q:object_shape:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "composition_scene_000542",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么形状？",
+        "record_type": "qa"
+      },
+      "variant": "compositional"
+    },
+    {
+      "composition_key": "red|circle",
+      "cue_aligned": null,
+      "cue_token": null,
+      "record_id": "compositional:test:composition_scene_000551:q:object_shape:obj_0:f0",
+      "schema_version": 1,
+      "split": "test",
+      "task": {
+        "answer": {
+          "derivation": "read_object_shape",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "circle"
+        },
+        "answer_zh": "圆形",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_shape",
+          "question_id": "composition_scene_000551:q:object_shape:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "composition_scene_000551",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么形状？",
+        "record_type": "qa"
+      },
+      "variant": "compositional"
+    }
+  ],
+  "core": [
+    {
+      "composition_key": null,
+      "cue_aligned": null,
+      "cue_token": null,
+      "record_id": "normal:train:core_scene_000000:q:count:f0",
+      "schema_version": 1,
+      "split": "train",
+      "task": {
+        "answer": {
+          "derivation": "count_visible_objects",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0",
+            "obj_1"
+          ],
+          "schema_version": 1,
+          "value": 2
+        },
+        "answer_zh": "2个",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_count",
+          "question_id": "core_scene_000000:q:count:f0",
+          "reference_object_id": null,
+          "scene_id": "core_scene_000000",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": null
+        },
+        "question_zh": "第1帧中有几个可见对象？",
+        "record_type": "qa"
+      },
+      "variant": "normal"
+    },
+    {
+      "composition_key": null,
+      "cue_aligned": null,
+      "cue_token": null,
+      "record_id": "normal:train:core_scene_000000:q:object_color:obj_0:f0",
+      "schema_version": 1,
+      "split": "train",
+      "task": {
+        "answer": {
+          "derivation": "read_object_color",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "blue"
+        },
+        "answer_zh": "蓝色",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_color",
+          "question_id": "core_scene_000000:q:object_color:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "core_scene_000000",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么颜色？",
+        "record_type": "qa"
+      },
+      "variant": "normal"
+    }
+  ],
+  "counterfactual_test": [
+    {
+      "composition_key": null,
+      "cue_aligned": false,
+      "cue_token": "cue_1",
+      "record_id": "counterfactual:test:shortcut_scene_000444:q:object_shape:obj_0:f0",
+      "schema_version": 1,
+      "split": "test",
+      "task": {
+        "answer": {
+          "derivation": "read_object_shape",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "circle"
+        },
+        "answer_zh": "圆形",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_shape",
+          "question_id": "shortcut_scene_000444:q:object_shape:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "shortcut_scene_000444",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么形状？",
+        "record_type": "qa"
+      },
+      "variant": "counterfactual"
+    },
+    {
+      "composition_key": null,
+      "cue_aligned": false,
+      "cue_token": "cue_3",
+      "record_id": "counterfactual:test:shortcut_scene_000445:q:object_shape:obj_0:f0",
+      "schema_version": 1,
+      "split": "test",
+      "task": {
+        "answer": {
+          "derivation": "read_object_shape",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "triangle"
+        },
+        "answer_zh": "三角形",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_shape",
+          "question_id": "shortcut_scene_000445:q:object_shape:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "shortcut_scene_000445",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么形状？",
+        "record_type": "qa"
+      },
+      "variant": "counterfactual"
+    },
+    {
+      "composition_key": null,
+      "cue_aligned": false,
+      "cue_token": "cue_3",
+      "record_id": "counterfactual:test:shortcut_scene_000446:q:object_shape:obj_0:f0",
+      "schema_version": 1,
+      "split": "test",
+      "task": {
+        "answer": {
+          "derivation": "read_object_shape",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "triangle"
+        },
+        "answer_zh": "三角形",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_shape",
+          "question_id": "shortcut_scene_000446:q:object_shape:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "shortcut_scene_000446",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么形状？",
+        "record_type": "qa"
+      },
+      "variant": "counterfactual"
+    }
+  ],
+  "shortcut_train": [
+    {
+      "composition_key": null,
+      "cue_aligned": true,
+      "cue_token": "cue_0",
+      "record_id": "shortcut_iid:train:shortcut_scene_000000:q:object_shape:obj_0:f0",
+      "schema_version": 1,
+      "split": "train",
+      "task": {
+        "answer": {
+          "derivation": "read_object_shape",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "circle"
+        },
+        "answer_zh": "圆形",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_shape",
+          "question_id": "shortcut_scene_000000:q:object_shape:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "shortcut_scene_000000",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么形状？",
+        "record_type": "qa"
+      },
+      "variant": "shortcut_iid"
+    },
+    {
+      "composition_key": null,
+      "cue_aligned": true,
+      "cue_token": "cue_3",
+      "record_id": "shortcut_iid:train:shortcut_scene_000001:q:object_shape:obj_0:f0",
+      "schema_version": 1,
+      "split": "train",
+      "task": {
+        "answer": {
+          "derivation": "read_object_shape",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "rectangle"
+        },
+        "answer_zh": "矩形",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_shape",
+          "question_id": "shortcut_scene_000001:q:object_shape:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "shortcut_scene_000001",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么形状？",
+        "record_type": "qa"
+      },
+      "variant": "shortcut_iid"
+    },
+    {
+      "composition_key": null,
+      "cue_aligned": true,
+      "cue_token": "cue_0",
+      "record_id": "shortcut_iid:train:shortcut_scene_000002:q:object_shape:obj_0:f0",
+      "schema_version": 1,
+      "split": "train",
+      "task": {
+        "answer": {
+          "derivation": "read_object_shape",
+          "evidence_frames": [
+            0
+          ],
+          "evidence_object_ids": [
+            "obj_0"
+          ],
+          "schema_version": 1,
+          "value": "circle"
+        },
+        "answer_zh": "圆形",
+        "question": {
+          "first_event": null,
+          "frame": 0,
+          "kind": "object_shape",
+          "question_id": "shortcut_scene_000002:q:object_shape:obj_0:f0",
+          "reference_object_id": null,
+          "scene_id": "shortcut_scene_000002",
+          "schema_version": 1,
+          "second_event": null,
+          "target_object_id": "obj_0"
+        },
+        "question_zh": "对象1是什么形状？",
+        "record_type": "qa"
+      },
+      "variant": "shortcut_iid"
+    }
+  ]
+}

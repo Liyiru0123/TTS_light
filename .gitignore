@@ -12,6 +12,9 @@ venv/
 # 注意：seed/data/ 是随包提供的最小运行时种子，必须入库，不受此规则影响）
 /data/
 
+# 数据生成时写出的依赖锁文件（provenance，由 generate_p1_w01 生成）
+requirements-lock.txt
+
 # 运行/调试临时产物
 *.log
 .tmp_*/

@@ -225,6 +225,8 @@ def probe_t2v() -> dict:
         ],
         cwd=ROOT,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         capture_output=True,
         check=True,
     )
@@ -239,7 +241,7 @@ def probe_t2v() -> dict:
             "start_stop_accuracy": motion["timing_accuracy"],
             "trajectory_mae": motion["trajectory_mae"],
         },
-        "subprocess_stdout_tail": completed.stdout[-1000:],
+        "subprocess_stdout_tail": (completed.stdout or "")[-1000:],
         "strict_load": True,
         "success": motion["direction_accuracy"] == 1.0 and motion["timing_accuracy"] == 1.0,
     }

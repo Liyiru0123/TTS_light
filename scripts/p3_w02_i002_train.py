@@ -336,12 +336,14 @@ def build_comparison_and_examples(records: list[dict], aggregate: dict, config: 
         i001 = json.loads(i001_path.read_text(encoding="utf-8"))
         i001_by_id = {item["source_record_id"]: item for item in i001["utterances"]}
     else:
+        i001 = None
         i001_by_id = {}
     pf001_path = ROOT / config["pf001_dir"] / "metrics.json"
     if pf001_path.exists():
         pf001 = json.loads(pf001_path.read_text(encoding="utf-8"))
         pf001_by_id = {item["record_id"]: item for item in pf001["predictions"]}
     else:
+        pf001 = None
         pf001_by_id = {}
     asr_rows = {
         row["record_id"]: row
@@ -357,11 +359,13 @@ def build_comparison_and_examples(records: list[dict], aggregate: dict, config: 
         "branch_id": "hifigan_vae",
         "sample_count": len(records),
         "paths": {
-            "B_i001_vae_griffin_lim": i001["aggregate"],
-            "C_source_mel_hifigan": {
-                "asr_cer": pf001["hifigan_asr_cer"],
-                "waveform_cycle_logmel_mae": pf001["mean_hifigan_cycle_logmel_mae"],
-            },
+            "B_i001_vae_griffin_lim": i001["aggregate"] if i001 is not None else "unavailable (I001 dev-chain metrics not shipped)",
+            "C_source_mel_hifigan": (
+                {
+                    "asr_cer": pf001["hifigan_asr_cer"],
+                    "waveform_cycle_logmel_mae": pf001["mean_hifigan_cycle_logmel_mae"],
+                } if pf001 is not None else "unavailable (PF001 dev-chain metrics not shipped)"
+            ),
             "D_i002_vae_hifigan": aggregate,
         },
         "teacher_perceptual_decision": "pending",
@@ -402,9 +406,13 @@ def build_comparison_and_examples(records: list[dict], aggregate: dict, config: 
             if source is None or not source.exists():
                 continue  # 开发链副产物缺失时跳过该路（B/C 可能缺失），不影响其他路
             shutil.copy2(source, destination)
-        waveforms = [sf.read(path, dtype="float32", always_2d=False)[0] for path in output_paths.values()]
+        existing_paths = [path for path in output_paths.values() if path.exists()]
         plot_path = media_dir / f"{stem}_ABCD_comparison.png"
-        save_four_way_plot(plot_path, [np.asarray(value, dtype=np.float32) for value in waveforms])
+        if len(existing_paths) == 4:
+            waveforms = [sf.read(path, dtype="float32", always_2d=False)[0] for path in output_paths.values()]
+            save_four_way_plot(plot_path, [np.asarray(value, dtype=np.float32) for value in waveforms])
+        else:
+            plot_path = None
         examples.append(
             {
                 "source_record_id": record_id,
@@ -417,8 +425,8 @@ def build_comparison_and_examples(records: list[dict], aggregate: dict, config: 
                 "i002_asr_cer": item["asr_cer"],
                 "i002_cycle_logmel_mae": item["waveform_cycle_logmel_mae"],
                 "is_fully_correct": item["asr_cer"] == 0.0 and item["hard_clip_samples"] == 0,
-                "media": {key: path.relative_to(BRANCH / "examples").as_posix() for key, path in output_paths.items()}
-                | {"comparison_plot": plot_path.relative_to(BRANCH / "examples").as_posix()},
+                "media": {key: path.relative_to(BRANCH / "examples").as_posix() for key, path in output_paths.items() if path.exists()}
+                | ({"comparison_plot": plot_path.relative_to(BRANCH / "examples").as_posix()} if plot_path is not None else {}),
                 "teacher_note": "待填写",
             }
         )
@@ -442,31 +450,24 @@ def build_comparison_and_examples(records: list[dict], aggregate: dict, config: 
     ]
     for number, item in enumerate(examples, 1):
         fmt = lambda value: f"{value:.4f}" if isinstance(value, (int, float)) else "N/A"  # noqa: E731
-        lines.extend(
-            [
-                f"## 样例{number}：`{item['source_record_id']}`",
-                "",
-                f"- 参考文本：{item['reference']}",
-                f"- I002 TinyASR回译：{item['i002_prediction']}",
-                f"- 选样角色：`{item['selection_role']}`",
-                f"- B循环64维Log-Mel MAE：`{fmt(item.get('i001_cycle_logmel_mae'))}`",
-                f"- C循环64维Log-Mel MAE：`{fmt(item.get('pf001_hifigan_cycle_logmel_mae'))}`",
-                f"- D循环64维Log-Mel MAE：`{fmt(item['i002_cycle_logmel_mae'])}`；D CER：`{fmt(item['i002_asr_cer'])}`",
-                "",
-                f"![A 原声]({item['media']['A_source']})",
-                "",
-                f"![B I001 VAE＋Griffin-Lim]({item['media']['B_i001_vae_griffin_lim']})",
-                "",
-                f"![C 真实Mel＋HiFi-GAN]({item['media']['C_source_mel_hifigan']})",
-                "",
-                f"![D I002 VAE＋HiFi-GAN]({item['media']['D_i002_vae_hifigan']})",
-                "",
-                f"![A/B/C/D同尺度频谱]({item['media']['comparison_plot']})",
-                "",
-                "- 教师听感批注：【待填写】",
-                "",
-            ]
-        )
+        block = [
+            f"## 样例{number}：`{item['source_record_id']}`",
+            "",
+            f"- 参考文本：{item['reference']}",
+            f"- I002 TinyASR回译：{item['i002_prediction']}",
+            f"- 选样角色：`{item['selection_role']}`",
+            f"- B循环64维Log-Mel MAE：`{fmt(item.get('i001_cycle_logmel_mae'))}`",
+            f"- C循环64维Log-Mel MAE：`{fmt(item.get('pf001_hifigan_cycle_logmel_mae'))}`",
+            f"- D循环64维Log-Mel MAE：`{fmt(item['i002_cycle_logmel_mae'])}`；D CER：`{fmt(item['i002_asr_cer'])}`",
+            "",
+        ]
+        for label, key in (("A 原声", "A_source"), ("B I001 VAE＋Griffin-Lim", "B_i001_vae_griffin_lim"), ("C 真实Mel＋HiFi-GAN", "C_source_mel_hifigan"), ("D I002 VAE＋HiFi-GAN", "D_i002_vae_hifigan")):
+            if key in item["media"]:
+                block.extend([f"![{label}]({item['media'][key]})", ""])
+        if "comparison_plot" in item["media"]:
+            block.extend([f"![A/B/C/D同尺度频谱]({item['media']['comparison_plot']})", ""])
+        block.extend(["- 教师听感批注：【待填写】", ""])
+        lines.extend(block)
     (BRANCH / "examples/capability_examples.md").write_text("\n".join(lines), encoding="utf-8")
     return payload
 

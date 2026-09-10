@@ -10,7 +10,7 @@
   "source_shape_checkpoint": "results/P2-W01_training_framework/checkpoints/best.pt",
   "output_data": "data/ldm/p2_w04_v2",
   "output_eval_data": "data/ldm/p2_w04_eval_v2",
-  "output_results": "results/P2-W04_tiny_image_ldm/revision_v2",
+  "output_results": "results/P2-W04_tiny_image_ldm",
   "data": {
     "extension_count": 5027,
     "extension_seed": 20260818,
@@ -44,7 +44,7 @@
   "training": {
     "batch_size": 64,
     "learning_rate": 0.0005,
-    "weight_decay": 0.00001,
+    "weight_decay": 1e-05,
     "epochs": 40,
     "overfit_epochs": 300,
     "overfit_count": 32,

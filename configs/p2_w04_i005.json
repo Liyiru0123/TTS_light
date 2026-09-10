@@ -12,11 +12,11 @@
   ],
   "frozen_assets": {
     "vae": "results/P2-W02_image_vae/checkpoints/best.pt",
-    "warmstart": "results/P2-W04_tiny_image_ldm/revision_v2/training_attempt3_control/checkpoints/best.pt",
+    "warmstart": "results/P2-W04_tiny_image_ldm/checkpoints/best.pt",
     "training_data": "data/ldm/p2_w04_v2",
     "evaluation_data": "data/ldm/p2_w04_eval_v2",
-    "thresholds": "results/P2-W04_tiny_image_ldm/revision_v2/threshold_freeze.json",
-    "shape_prototypes": "results/P2-W04_tiny_image_ldm/revision_v2/evaluator_shape_templates.npz"
+    "thresholds": "results/P2-W04_tiny_image_ldm/threshold_freeze.json",
+    "shape_prototypes": "results/P2-W04_tiny_image_ldm/evaluator_shape_templates.npz"
   },
   "sampling_preflight": {
     "output": "results/P2-W04_tiny_image_ldm/planning/I005/sampling_preflight",
@@ -87,7 +87,7 @@
       "residual_regularization": 0.01
     },
     "learning_rate": 0.0003,
-    "weight_decay": 0.00001,
+    "weight_decay": 1e-05,
     "overfit_epochs": 120,
     "overfit_count": 32,
     "finetune_epochs": 16,

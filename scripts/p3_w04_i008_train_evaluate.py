@@ -34,7 +34,7 @@ from p3_w04_pf012_temporal_attention import corrupt  # noqa: E402
 
 
 CONFIG_PATH = ROOT / "configs/p3_w04_i008_generated_motion.json"
-BRANCH = ROOT / "results/P3-W04_video_generation/iterations/I008/branches/generated_motion_module"
+BRANCH = ROOT / "results/P3-W04_video_generation"
 
 
 def write_json(path: Path, value: object) -> None:

@@ -33,8 +33,8 @@ from p3_w04_pf011_generated_anchor_motion import (  # noqa: E402
 
 CONFIG = ROOT / "configs/p3_w04_i008_generated_motion.json"
 CHECKPOINT = ROOT / (
-    "results/P3-W04_video_generation/iterations/I008/branches/"
-    "generated_motion_module/checkpoints/best.pt"
+    "results/P3-W04_video_generation/"
+    "checkpoints/best.pt"
 )
 DEFAULT_RECORD = "new:test:p3w04_test_000002"
 LABELS = ("Independent LDM", "Motion OFF", "Motion ON")

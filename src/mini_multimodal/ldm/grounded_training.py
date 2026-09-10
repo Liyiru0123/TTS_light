@@ -269,14 +269,14 @@ def run_grounded_training(project_root: str | Path, config: Mapping[str, Any]) -
     train = LatentTextDataset(root, data_dir=config["output_data"], split="train", max_text_length=int(config["model"]["max_text_length"]))
     validation = LatentTextDataset(root, data_dir=config["output_data"], split="validation", max_text_length=int(config["model"]["max_text_length"]))
     test = LatentTextDataset(root, data_dir=config["output_data"], split="test", max_text_length=int(config["model"]["max_text_length"]))
-    model, optimizer, trainer = _trainer(result_dir / "training_grounded", config, train.tokenizer, epochs=int(config["training"]["epochs"]))
+    model, optimizer, trainer = _trainer(result_dir, config, train.tokenizer, epochs=int(config["training"]["epochs"]))
     process = psutil.Process()
     started = perf_counter()
     history = trainer.fit(
         _loader(train, config, shuffle=False, seed=seed, balanced_objects=True),
         _loader(validation, config, shuffle=False, seed=seed),
     )
-    checkpoint = result_dir / "training_grounded/checkpoints/best.pt"
+    checkpoint = result_dir / "checkpoints/best.pt"
     best = load_checkpoint(checkpoint, model=model, optimizer=optimizer, restore_rng=False)
     loader = _loader(test, config, shuffle=False, seed=seed)
     schedule = schedule_from_config(config)

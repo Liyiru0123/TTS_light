@@ -41,7 +41,7 @@ from mini_multimodal.training import Trainer, TrainerConfig, load_checkpoint  # 
 
 
 RESULT = ROOT / "results/P3-W02_speech_vae"
-BRANCH = RESULT / "iterations/I002/branches/hifigan_vae"
+BRANCH = RESULT
 
 
 def write_json(path: Path, value: object) -> None:
@@ -174,7 +174,7 @@ def evaluate_windows(model: TinySpeechVAE, dataset: SpeechWindowDataset, config:
 
 def load_asr() -> tuple[TinyASR, CharacterCTCTokenizer]:
     package = torch.load(
-        ROOT / "results/P2-W05_tiny_asr/iterations/I002/branches/robust_finetune/inference_package.pt",
+        ROOT / "results/P2-W05_tiny_asr/checkpoints/inference_package.pt",
         map_location="cpu",
         weights_only=False,
     )
@@ -331,15 +331,17 @@ def save_four_way_plot(path: Path, waveforms: list[np.ndarray]) -> None:
 def build_comparison_and_examples(records: list[dict], aggregate: dict, config: dict) -> dict:
     # 健壮性：I001 指标与 PF001 预检结果为开发链副产物，包内不一定随附；
     # 缺失时跳过对应对比字段，不影响训练/评估/打包主链路。
-    i001_path = ROOT / config["i001_branch"] / "metrics/utterance_metrics.json"
-    if i001_path.exists():
+    i001_branch = config.get("i001_branch")
+    i001_path = (ROOT / i001_branch / "metrics/utterance_metrics.json") if i001_branch else None
+    if i001_path is not None and i001_path.exists():
         i001 = json.loads(i001_path.read_text(encoding="utf-8"))
         i001_by_id = {item["source_record_id"]: item for item in i001["utterances"]}
     else:
         i001 = None
         i001_by_id = {}
-    pf001_path = ROOT / config["pf001_dir"] / "metrics.json"
-    if pf001_path.exists():
+    pf001_dir = config.get("pf001_dir")
+    pf001_path = (ROOT / pf001_dir / "metrics.json") if pf001_dir else None
+    if pf001_path is not None and pf001_path.exists():
         pf001 = json.loads(pf001_path.read_text(encoding="utf-8"))
         pf001_by_id = {item["record_id"]: item for item in pf001["predictions"]}
     else:
@@ -581,13 +583,13 @@ def main() -> None:
         "hifigan_weight_sha256": sha256(ROOT / config["hifigan_weight"]),
         "source_checkpoint_sha256": sha256(BRANCH / "checkpoints/best.pt"),
     }
-    torch.save(package, BRANCH / "inference_package.pt")
+    torch.save(package, BRANCH / "checkpoints/inference_package.pt")
 
     checkpoint_manifest = {"schema_version": 1, "iteration_id": "I002", "branch_id": "hifigan_vae", "files": []}
     for relative, role in (
         ("checkpoints/best.pt", "best"),
         ("checkpoints/last.pt", "last"),
-        ("inference_package.pt", "inference"),
+        ("checkpoints/inference_package.pt", "inference"),
     ):
         path = BRANCH / relative
         checkpoint_manifest["files"].append(
@@ -621,7 +623,7 @@ def main() -> None:
         "COMP-SPR2-001": capability["example_count"] == 8,
         "REPRO-SPR2-001": reproducibility["identical"],
         "RES-SPR2-001": resource["trainable_vae_parameters"] <= thresholds["maximum_parameters"] and resource["wall_seconds"] <= thresholds["maximum_wall_seconds"] and resource["peak_observed_rss_bytes"] <= thresholds["maximum_peak_rss_bytes"] and resource["hifigan_vocoder_rtf"] <= thresholds["maximum_hifigan_rtf"],
-        "ART-SPR2-001": all((BRANCH / path).exists() for path in ("checkpoints/best.pt", "checkpoints/last.pt", "inference_package.pt", "examples/capability_examples.md", "examples/capability_examples.json", "predictions/test_window_predictions.jsonl")),
+        "ART-SPR2-001": all((BRANCH / path).exists() for path in ("checkpoints/best.pt", "checkpoints/last.pt", "checkpoints/inference_package.pt", "examples/capability_examples.md", "examples/capability_examples.json", "predictions/test_window_predictions.jsonl")),
     }
     acceptance = {
         "schema_version": 1,

@@ -92,7 +92,7 @@ def probe_asr() -> dict:
         ctc_greedy_decode,
     )
 
-    path = ROOT / "results/P2-W05_tiny_asr/iterations/I002/branches/robust_finetune/inference_package.pt"
+    path = ROOT / "results/P2-W05_tiny_asr/checkpoints/inference_package.pt"
     package = torch.load(path, map_location="cpu", weights_only=False)
     tokenizer = CharacterCTCTokenizer(package["vocabulary"])
     model = TinyASR(vocabulary_size=len(tokenizer), **package["model_config"])
@@ -175,8 +175,8 @@ def probe_video_mllm() -> dict:
     from mini_multimodal.video_mllm import TinyVideoMLLMI003, VideoQADataset, collate_video_qa
 
     path = ROOT / (
-        "results/P3-W01_tiny_video_mllm/iterations/I003/branches/"
-        "spacetime_queries/inference_package.pt"
+        "results/P3-W01_tiny_video_mllm/"
+        "checkpoints/inference_package.pt"
     )
     package = torch.load(path, map_location="cpu", weights_only=False)
     dataset = VideoQADataset(ROOT, data_dir="data/video_qa/p3_w01_v1", splits="test")

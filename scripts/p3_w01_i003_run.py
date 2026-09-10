@@ -33,7 +33,7 @@ from mini_multimodal.video_mllm import (  # noqa: E402
 
 
 RESULT_ROOT = ROOT / "results/P3-W01_tiny_video_mllm"
-BRANCH = RESULT_ROOT / "iterations/I003/branches/spacetime_queries"
+BRANCH = RESULT_ROOT
 
 
 def write_json(path: Path, value: Any) -> None:
@@ -256,7 +256,7 @@ def build_examples(test_data, predictions):
         for frame_index, image in enumerate(images):
             montage.paste(image, (64 * frame_index, 0))
         montage.save(montage_path)
-        relative_base = "results/P3-W01_tiny_video_mllm/iterations/I003/branches/spacetime_queries/examples/media"
+        relative_base = "results/P3-W01_tiny_video_mllm/examples/media"
         example = {
             **{key: item[key] for key in (
                 "record_id", "question_kind", "classification_correct", "generation_correct",
@@ -428,7 +428,7 @@ def main() -> None:
     write_json(metrics / "resource_benchmark.json", resource)
     examples = build_examples(test_data, predictions)
 
-    package_path = BRANCH / "inference_package.pt"
+    package_path = BRANCH / "checkpoints/inference_package.pt"
     with package_path.open("wb") as stream:
         torch.save({
             "schema_version": 1,
@@ -475,7 +475,7 @@ def main() -> None:
         })
 
     pf009_path = RESULT_ROOT / "preflight/PF009/preflight_result.json"
-    i002_path = RESULT_ROOT / "iterations/I002/branches/temporal_core/metrics/evaluation_metrics.json"
+    i002_path = RESULT_ROOT / "checkpoints/evaluation_metrics.json"
     pf009 = json.loads(pf009_path.read_text(encoding="utf-8")) if pf009_path.is_file() else None
     i002 = json.loads(i002_path.read_text(encoding="utf-8")) if i002_path.is_file() else None
     dev_preflight = pf009 is not None
@@ -508,13 +508,13 @@ def main() -> None:
         "skipped_items": [key for key, value in items.items() if value.get("skipped")],
     })
     if i002 is not None:
-        write_json(RESULT_ROOT / "iterations/I003/comparisons/I002_vs_I003.json", {
+        write_json(RESULT_ROOT / "comparisons/I002_vs_I003.json", {
             "schema_version": 1,
             "I002": {"classification_accuracy": i002["classification_accuracy"], "generation_accuracy": i002["generation_accuracy"], "move_start_classification_accuracy": i002["question_kind"]["move_start_order"]["classification_accuracy"]},
             "I003": {"classification_accuracy": evaluation["classification_accuracy"], "generation_accuracy": evaluation["generation_accuracy"], "move_start_classification_accuracy": move_full, "onset_relation_accuracy": evaluation["onset_relation_accuracy"]},
         })
     else:
-        write_json(RESULT_ROOT / "iterations/I003/comparisons/I002_vs_I003.json", {
+        write_json(RESULT_ROOT / "comparisons/I002_vs_I003.json", {
             "schema_version": 1, "skipped": True,
             "reason": "I002 historical metrics unavailable in from-scratch reproduction",
         })

@@ -123,7 +123,7 @@ def evaluate_items(model, items, tokenizer, criterion, batch_size=8):
 def main() -> None:
     parser = argparse.ArgumentParser(); parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1]); args = parser.parse_args()
     root = args.root.resolve(); config = json.loads((root / "configs/p2_w05_tiny_asr.json").read_text(encoding="utf-8"))
-    result_root = root / config["output_results"]; branch = result_root / "iterations/I001/branches/baseline"; checkpoints = branch / "checkpoints"; results = branch / "results"
+    result_root = root / config["output_results"]; branch = result_root / "checkpoints"; checkpoints = branch / "checkpoints"; results = branch / "results"
     checkpoints.mkdir(parents=True, exist_ok=True); results.mkdir(parents=True, exist_ok=True)
     splits = json.loads((root / config["output_data"] / "splits.json").read_text(encoding="utf-8"))
     rows = [json.loads(line) for line in (root / config["output_data"] / "records.jsonl").read_text(encoding="utf-8").splitlines()]; by_id = {row["record_id"]: row for row in rows}

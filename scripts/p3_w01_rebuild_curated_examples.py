@@ -21,7 +21,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from mini_multimodal.video_mllm import VideoQADataset  # noqa: E402
 
 
-BRANCH = ROOT / "results/P3-W01_tiny_video_mllm/iterations/I003/branches/spacetime_queries"
+BRANCH = ROOT / "results/P3-W01_tiny_video_mllm"
 PREDICTIONS = BRANCH / "predictions/test_predictions.jsonl"
 
 # Curated against the fixed test set. The set covers all four question kinds,
@@ -75,7 +75,7 @@ def main() -> None:
             montage.paste(image, (64 * frame_index, 0))
         montage.save(montage_path)
 
-        relative_base = "results/P3-W01_tiny_video_mllm/iterations/I003/branches/spacetime_queries/examples/media"
+        relative_base = "results/P3-W01_tiny_video_mllm/examples/media"
         examples.append({
             **{key: item.get(key) for key in (
                 "record_id", "question_kind", "classification_correct", "generation_correct",

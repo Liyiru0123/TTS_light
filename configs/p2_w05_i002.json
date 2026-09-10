@@ -9,7 +9,7 @@
   "source_speech": "data/speech/p1_w05_v1",
   "output_data": "data/asr/p2_w05_i002_v1",
   "output_results": "results/P2-W05_tiny_asr",
-  "initial_checkpoint": "results/P2-W05_tiny_asr/iterations/I001/branches/baseline/checkpoints/best.pt",
+  "initial_checkpoint": null,
   "model": {
     "n_mels": 64,
     "d_model": 96,
@@ -50,8 +50,14 @@
   "evaluation": {
     "stress_seed": 20260816,
     "noise_snr_db": 15.0,
-    "additional_noise_snr_db": [10.0, 20.0],
-    "speed_factors": [0.9, 1.1],
+    "additional_noise_snr_db": [
+      10.0,
+      20.0
+    ],
+    "speed_factors": [
+      0.9,
+      1.1
+    ],
     "stress_sample_count": 60,
     "example_count": 12
   },
@@ -64,9 +70,9 @@
     "compositional_test_cer_max": 0.03,
     "clean_test_cer_increase_over_i001_max": 0.01,
     "text_nonoverlap_test_cer_increase_over_i001_max": 0.01,
-    "noise_cer_increase_max": 0.20,
-    "noise_cer_absolute_improvement_over_i001_min": 0.20,
-    "speed_cer_increase_max": 0.20,
+    "noise_cer_increase_max": 0.2,
+    "noise_cer_absolute_improvement_over_i001_min": 0.2,
+    "speed_cer_increase_max": 0.2,
     "max_trainable_parameters": 1000000,
     "max_wall_seconds": 1800,
     "max_peak_rss_bytes": 2147483648

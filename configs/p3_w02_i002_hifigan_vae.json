@@ -10,9 +10,9 @@
   "source_asr": "data/asr/p2_w05_v1",
   "output_data": "data/speech_vae/p3_w02_hifigan_v2",
   "output_latents": "data/latents/p3_w02_hifigan_v2",
-  "output_results": "results/P3-W02_speech_vae/iterations/I002/branches/hifigan_vae",
+  "output_results": "results/P3-W03_tiny_tts",
   "hifigan_weight": "models/external/hifigan_v3_ljspeech/hifigan_vocoder_v3_ljspeech.pth",
-  "i001_branch": "results/P3-W02_speech_vae/iterations/I001/branches/spectral_vae",
+  "i001_branch": null,
   "pf001_dir": "results/P3-W02_speech_vae/preflight/PF001_hifigan",
   "window": {
     "frames": 256,
@@ -34,7 +34,7 @@
     "norm": "slaney",
     "center": false,
     "reflect_padding": 384,
-    "log_floor": 0.00001
+    "log_floor": 1e-05
   },
   "model": {
     "base_channels": 16,
@@ -47,12 +47,12 @@
   "loss": {
     "reconstruction_weight": 1.0,
     "temporal_delta_weight": 0.25,
-    "kl_weight": 0.00001
+    "kl_weight": 1e-05
   },
   "training": {
     "batch_size": 32,
     "learning_rate": 0.001,
-    "weight_decay": 0.00001,
+    "weight_decay": 1e-05,
     "epochs": 10,
     "overfit_windows": 16,
     "overfit_updates": 240,
@@ -79,7 +79,7 @@
     "test_normalized_mae_max": 0.12,
     "test_logmel_mae_max": 1.0,
     "test_delta_mae_max": 1.5,
-    "minimum_kl": 0.00001,
+    "minimum_kl": 1e-05,
     "maximum_overlap_boundary_mae": 1.5,
     "maximum_waveform_cycle_logmel_mae": 4.5,
     "maximum_asr_reconstruction_cer": 0.1,
@@ -90,4 +90,3 @@
     "maximum_hifigan_rtf": 1.0
   }
 }
-

@@ -84,7 +84,7 @@ def load_revision_checkpoint(root: Path, config: Mapping[str, Any]) -> dict[str,
     vocabulary = json.loads((root / config["output_data"] / "vocabulary.json").read_text(encoding="utf-8"))
     tokenizer = CharacterTokenizer(vocabulary)
     model = model_from_config(config, tokenizer)
-    checkpoint = root / config["output_results"] / "training_v2/checkpoints/best.pt"
+    checkpoint = root / config["output_results"] / "checkpoints/best.pt"
     load_checkpoint(checkpoint, model=model, optimizer=None, restore_rng=False)
     model.eval()
     return {

@@ -27,7 +27,7 @@ def load_attempt3_checkpoint(root: Path, config: Mapping[str, Any], branch: str)
     vocabulary = json.loads((root / config["output_data"] / "vocabulary.json").read_text(encoding="utf-8"))
     tokenizer = CharacterTokenizer(vocabulary)
     model = grounded_model_from_config(config, tokenizer)
-    checkpoint = root / config["output_results"] / f"training_attempt3_{branch}/checkpoints/best.pt"
+    checkpoint = root / config["output_results"] / "checkpoints/best.pt"
     load_checkpoint(checkpoint, model=model, optimizer=None, restore_rng=False)
     model.eval()
     return {

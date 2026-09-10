@@ -7,8 +7,8 @@
   "cpu_threads": 8,
   "source_speech": "data/speech/p1_w05_v1",
   "source_speech_vae": "data/speech_vae/p3_w02_hifigan_v2",
-  "speech_vae_package": "results/P3-W02_speech_vae/iterations/I002/branches/hifigan_vae/inference_package.pt",
-  "asr_package": "results/P2-W05_tiny_asr/iterations/I002/branches/robust_finetune/inference_package.pt",
+  "speech_vae_package": "results/P3-W02_speech_vae/checkpoints/inference_package.pt",
+  "asr_package": "results/P2-W05_tiny_asr/checkpoints/inference_package.pt",
   "hifigan_weight": "models/external/hifigan_v3_ljspeech/hifigan_vocoder_v3_ljspeech.pth",
   "output_data": "data/speech/p3_w03_tiny_tts_v1",
   "output_results": "results/P3-W03_tiny_tts",
@@ -21,7 +21,10 @@
     "min_frames": 86,
     "max_frames": 256,
     "target_frames": 120,
-    "target_train_units": [8000, 15000]
+    "target_train_units": [
+      8000,
+      15000
+    ]
   },
   "container": {
     "t_max": 64,
@@ -99,8 +102,34 @@
     "clean_probability": 0.5,
     "note": "I002: CFM 训练时按概率随机缩放条件时长并在目标 x1 内逐字符重采样，使模型对时长倍率鲁棒（rate control 分布内）"
   },
-  "evaluation_record_ids": ["composition_scene_000633#u005", "shortcut_scene_000486#u005", "core_scene_000769#u008", "shortcut_scene_000570#u002", "core_scene_000753#u010", "core_scene_000770#u000", "core_scene_000733#u003", "core_scene_000758#u003"],
-  "overfit_unit_ids": ["core_scene_000000#u000", "core_scene_000000#u001", "core_scene_000000#u002", "core_scene_000000#u003", "core_scene_000000#u004", "core_scene_000000#u005", "core_scene_000000#u006", "core_scene_000000#u007", "core_scene_000000#u008", "core_scene_000001#u000", "core_scene_000001#u001", "core_scene_000001#u002", "core_scene_000001#u003", "core_scene_000001#u004", "core_scene_000001#u005", "core_scene_000002#u000"],
+  "evaluation_record_ids": [
+    "composition_scene_000633#u005",
+    "shortcut_scene_000486#u005",
+    "core_scene_000769#u008",
+    "shortcut_scene_000570#u002",
+    "core_scene_000753#u010",
+    "core_scene_000770#u000",
+    "core_scene_000733#u003",
+    "core_scene_000758#u003"
+  ],
+  "overfit_unit_ids": [
+    "core_scene_000000#u000",
+    "core_scene_000000#u001",
+    "core_scene_000000#u002",
+    "core_scene_000000#u003",
+    "core_scene_000000#u004",
+    "core_scene_000000#u005",
+    "core_scene_000000#u006",
+    "core_scene_000000#u007",
+    "core_scene_000000#u008",
+    "core_scene_000001#u000",
+    "core_scene_000001#u001",
+    "core_scene_000001#u002",
+    "core_scene_000001#u003",
+    "core_scene_000001#u004",
+    "core_scene_000001#u005",
+    "core_scene_000002#u000"
+  ],
   "thresholds": {
     "minimum_train_units": 8000,
     "maximum_train_units": 15000,
@@ -112,7 +141,7 @@
     "overfit_velocity_mae_drop_min": 0.5,
     "overfit_asr_cer_gap_max": 0.1,
     "padding_compat_max": 0.05,
-    "cer_gap_to_baseline_max": 0.10,
+    "cer_gap_to_baseline_max": 0.1,
     "duration_mean_rel_error_max": 0.05,
     "duration_cer_gap_max": 0.05,
     "maximum_parameters": 1000000,

@@ -13,8 +13,14 @@
       "model_id": "tiny_vlm",
       "task": "image_text_analysis",
       "work_package": "P2-W03",
-      "technical_candidate": {"iteration_id": "legacy_pre_registry", "branch_id": "generative"},
-      "teaching_use_version": {"iteration_id": "legacy_pre_registry", "branch_id": "generative"},
+      "technical_candidate": {
+        "iteration_id": "legacy_pre_registry",
+        "branch_id": "generative"
+      },
+      "teaching_use_version": {
+        "iteration_id": "legacy_pre_registry",
+        "branch_id": "generative"
+      },
       "official_release": null,
       "asset": "results/P2-W03_tiny_vlm/checkpoints/tiny_vlm_inference.pt",
       "asset_sha256": "8a10b5a1a88998033f18a66d0f672c42fdb7bb61a751db05a69bc28bed445823",
@@ -24,10 +30,16 @@
       "model_id": "tiny_image_ldm",
       "task": "text_to_image_generation",
       "work_package": "P2-W04",
-      "technical_candidate": {"iteration_id": "I004", "branch_id": "control"},
-      "teaching_use_version": {"iteration_id": "I004", "branch_id": "control"},
+      "technical_candidate": {
+        "iteration_id": "I004",
+        "branch_id": "control"
+      },
+      "teaching_use_version": {
+        "iteration_id": "I004",
+        "branch_id": "control"
+      },
       "official_release": null,
-      "asset": "results/P2-W04_tiny_image_ldm/revision_v2/training_attempt3_control/checkpoints/best.pt",
+      "asset": "results/P2-W04_tiny_image_ldm/checkpoints/best.pt",
       "asset_sha256": "4953bea21f206df8db8df9e2a56d5c6b5e92b6480cac34e9d4300afcad400e1d",
       "probe": "tiny_image_ldm"
     },
@@ -35,10 +47,16 @@
       "model_id": "tiny_asr",
       "task": "speech_to_text_analysis",
       "work_package": "P2-W05",
-      "technical_candidate": {"iteration_id": "I002", "branch_id": "robust_finetune"},
-      "teaching_use_version": {"iteration_id": "I002", "branch_id": "robust_finetune"},
+      "technical_candidate": {
+        "iteration_id": "I002",
+        "branch_id": "robust_finetune"
+      },
+      "teaching_use_version": {
+        "iteration_id": "I002",
+        "branch_id": "robust_finetune"
+      },
       "official_release": null,
-      "asset": "results/P2-W05_tiny_asr/iterations/I002/branches/robust_finetune/inference_package.pt",
+      "asset": "results/P2-W05_tiny_asr/checkpoints/inference_package.pt",
       "asset_sha256": "6922c506a05402aea90010a9cef5c23baee2548f44d890f397946719d7c53733",
       "probe": "tiny_asr"
     },
@@ -46,10 +64,16 @@
       "model_id": "tiny_speech_flow",
       "task": "text_to_speech_generation",
       "work_package": "P3-W03",
-      "technical_candidate": {"iteration_id": "I001", "branch_id": "main"},
-      "teaching_use_version": {"iteration_id": "I004", "branch_id": "supported_rate"},
+      "technical_candidate": {
+        "iteration_id": "I001",
+        "branch_id": "main"
+      },
+      "teaching_use_version": {
+        "iteration_id": "I004",
+        "branch_id": "supported_rate"
+      },
       "official_release": null,
-      "asset": "results/P3-W03_tiny_tts/iterations/I004/branches/supported_rate/checkpoints/best.pt",
+      "asset": "results/P3-W03_tiny_tts/checkpoints/best.pt",
       "asset_sha256": "82a297bc8f424830875eaeeea27a3eb40d985d4783ea870d53837c45ff53b734",
       "probe": "tiny_speech_flow"
     },
@@ -57,10 +81,16 @@
       "model_id": "tiny_video_mllm",
       "task": "video_text_analysis",
       "work_package": "P3-W01",
-      "technical_candidate": {"iteration_id": "I003", "branch_id": "spacetime_queries"},
-      "teaching_use_version": {"iteration_id": "I003", "branch_id": "spacetime_queries"},
+      "technical_candidate": {
+        "iteration_id": "I003",
+        "branch_id": "spacetime_queries"
+      },
+      "teaching_use_version": {
+        "iteration_id": "I003",
+        "branch_id": "spacetime_queries"
+      },
       "official_release": null,
-      "asset": "results/P3-W01_tiny_video_mllm/iterations/I003/branches/spacetime_queries/inference_package.pt",
+      "asset": "results/P3-W01_tiny_video_mllm/checkpoints/inference_package.pt",
       "asset_sha256": "d8e7cb50b04f3a754e12174eb002d72cbe62d67d939a773f334325f2987c7706",
       "probe": "tiny_video_mllm"
     },
@@ -68,10 +98,16 @@
       "model_id": "tiny_t2v",
       "task": "text_to_video_generation",
       "work_package": "P3-W04",
-      "technical_candidate": {"iteration_id": "I008", "branch_id": "generated_motion_module"},
-      "teaching_use_version": {"iteration_id": "I008", "branch_id": "generated_motion_module"},
+      "technical_candidate": {
+        "iteration_id": "I008",
+        "branch_id": "generated_motion_module"
+      },
+      "teaching_use_version": {
+        "iteration_id": "I008",
+        "branch_id": "generated_motion_module"
+      },
       "official_release": null,
-      "asset": "results/P3-W04_video_generation/iterations/I008/branches/generated_motion_module/checkpoints/best.pt",
+      "asset": "results/P3-W04_video_generation/checkpoints/best.pt",
       "asset_sha256": "ddd4f0ad068111b7d7380c26a611e762b49b0b89fcb2e950cc91e598b52fc3c7",
       "probe": "tiny_t2v"
     }
@@ -84,7 +120,7 @@
     },
     {
       "dependency_id": "speech_vae_hifigan_package",
-      "asset": "results/P3-W02_speech_vae/iterations/I002/branches/hifigan_vae/inference_package.pt",
+      "asset": "results/P3-W02_speech_vae/checkpoints/inference_package.pt",
       "asset_sha256": "7e6eb2c32c5c45661b288f1afaea339bb35d9adeec63aa86f7f001434afedf5d"
     },
     {

@@ -22,6 +22,13 @@ tmp_*/
 *.bak
 nul
 
+# 教学 Notebook 不入包（交付分工：PPT/讲义/Notebooks 经教学平台发放，包内不随附；
+# 教师或学生临时放入的练习目录防止误提交；只限根目录，避免误伤深层同名路径）
+/notebooks/
+/Notebooks/
+/notebook/
+/Notebook/
+
 # 编辑器与系统文件
 .idea/
 .vscode/

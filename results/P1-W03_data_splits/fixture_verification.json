@@ -1,0 +1,11 @@
+{
+  "files": {
+    "compositional_records.jsonl": "5f2ca4b6f7d702ca6745db59b1f839067daf73a5cfec249f0ccd50e07a6850be",
+    "compositional_scenes.jsonl": "9c5fc2d79554166cbb9a1161f7eb08aa12251aa25062a33a85c50e921123004c",
+    "core_records.jsonl": "220a043dbad4a15ba8b64f2d52ce9a28502f3b2837493262109d648fc75d64b0",
+    "core_scenes.jsonl": "2068be41defa1d32f838f1c3c6ae28107f7144c47c1a2b5b4954119ace0a4a51",
+    "shortcut_records.jsonl": "2c667973fca571b34ca46c13f7a780796578abf2528f19bad0becc356f7c3777",
+    "shortcut_scenes.jsonl": "51cf4433005c76118ba52cfb7dc12ca078007234f7ccb0e07f0a2adda1e93f78"
+  },
+  "verified": true
+}

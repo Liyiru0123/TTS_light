@@ -1,0 +1,71 @@
+{
+  "all_test_colors_seen_in_train": true,
+  "all_test_shapes_seen_in_train": true,
+  "holdout_pairs": [
+    "blue|square",
+    "green|triangle",
+    "purple|pentagon",
+    "red|circle",
+    "yellow|rectangle"
+  ],
+  "splits": {
+    "test": {
+      "composition_count": 5,
+      "record_count": 100,
+      "shape_counts": {
+        "circle": 20,
+        "pentagon": 20,
+        "rectangle": 20,
+        "square": 20,
+        "triangle": 20
+      }
+    },
+    "train": {
+      "composition_count": 25,
+      "record_count": 300,
+      "shape_counts": {
+        "circle": 60,
+        "pentagon": 60,
+        "rectangle": 60,
+        "square": 60,
+        "triangle": 60
+      }
+    },
+    "validation": {
+      "composition_count": 23,
+      "record_count": 60,
+      "shape_counts": {
+        "circle": 12,
+        "pentagon": 12,
+        "rectangle": 12,
+        "square": 12,
+        "triangle": 12
+      }
+    }
+  },
+  "test_holdout_coverage": [
+    "blue|square",
+    "green|triangle",
+    "purple|pentagon",
+    "red|circle",
+    "yellow|rectangle"
+  ],
+  "test_non_holdout_count": 0,
+  "train_colors": [
+    "blue",
+    "green",
+    "orange",
+    "purple",
+    "red",
+    "yellow"
+  ],
+  "train_holdout_leak_count": 0,
+  "train_shapes": [
+    "circle",
+    "pentagon",
+    "rectangle",
+    "square",
+    "triangle"
+  ],
+  "validation_holdout_leak_count": 0
+}

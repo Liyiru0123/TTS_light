@@ -1,0 +1,9 @@
+{
+  "current_bytes": 2648324,
+  "evictions": 0,
+  "hits": 4,
+  "item_count": 8,
+  "max_bytes": 67108864,
+  "misses": 8,
+  "skipped_oversize": 0
+}

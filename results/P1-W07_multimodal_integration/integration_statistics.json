@@ -1,0 +1,22 @@
+{
+  "asset_reference_count": 6880,
+  "generation_condition_count": 5160,
+  "pool_scene_counts": {
+    "compositional": 460,
+    "core": 800,
+    "shortcut": 460
+  },
+  "qa_record_count": 11163,
+  "scene_count": 1720,
+  "split_scene_counts": {
+    "test": 300,
+    "train": 1200,
+    "validation": 220
+  },
+  "variant_scene_counts": {
+    "compositional": 460,
+    "counterfactual": 100,
+    "normal": 800,
+    "shortcut_iid": 360
+  }
+}

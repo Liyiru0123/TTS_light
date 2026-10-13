@@ -1,0 +1,56 @@
+{
+  "condition_sha256": "d665bbd6c9dd6729a6799ca89f4c66027f80e3f7cabfc9cbf07cb1ca50fa8d07",
+  "preview_sha256": "94b06123ee0708bee1afb571a55165f3383a3aa68ff260f24141fab49b5f5528",
+  "qa_sha256": "7fd4ad0b02db69d29115ac72a31e23cd6b11661557cb33022bc1ad8413cb4a5a",
+  "statistics": {
+    "answer_values": {
+      "1": 62,
+      "2": 73,
+      "3": 66,
+      "above": 137,
+      "below": 134,
+      "blue": 65,
+      "circle": 86,
+      "down": 87,
+      "first_event": 190,
+      "green": 74,
+      "large": 141,
+      "left": 79,
+      "left_of": 146,
+      "medium": 145,
+      "orange": 61,
+      "pentagon": 76,
+      "purple": 80,
+      "rectangle": 72,
+      "red": 67,
+      "right": 73,
+      "right_of": 125,
+      "same_time": 3,
+      "small": 120,
+      "square": 83,
+      "static": 78,
+      "triangle": 89,
+      "up": 89,
+      "yellow": 59
+    },
+    "generation_condition_count": 603,
+    "qa_task_count": 2560,
+    "question_kinds": {
+      "event_order": 193,
+      "horizontal_relation": 271,
+      "motion_direction": 406,
+      "object_color": 406,
+      "object_count": 201,
+      "object_shape": 406,
+      "object_size": 406,
+      "vertical_relation": 271
+    },
+    "scene_count": 201,
+    "target_modalities": {
+      "image": 201,
+      "speech": 201,
+      "video": 201
+    }
+  },
+  "verified": true
+}

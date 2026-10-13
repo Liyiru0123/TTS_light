@@ -1,0 +1,60 @@
+{
+  "learned_cue_to_shape": {
+    "cue_0": "circle",
+    "cue_1": "square",
+    "cue_2": "triangle",
+    "cue_3": "rectangle",
+    "cue_4": "pentagon"
+  },
+  "shape_to_cue": {
+    "circle": "cue_0",
+    "pentagon": "cue_4",
+    "rectangle": "cue_3",
+    "square": "cue_1",
+    "triangle": "cue_2"
+  },
+  "splits": {
+    "test": {
+      "aligned_count": 0,
+      "aligned_rate": 0.0,
+      "answer_counts": {
+        "circle": 20,
+        "pentagon": 20,
+        "rectangle": 20,
+        "square": 20,
+        "triangle": 20
+      },
+      "cue_only_accuracy": 0.0,
+      "majority_accuracy": 0.2,
+      "record_count": 100
+    },
+    "train": {
+      "aligned_count": 270,
+      "aligned_rate": 0.9,
+      "answer_counts": {
+        "circle": 60,
+        "pentagon": 60,
+        "rectangle": 60,
+        "square": 60,
+        "triangle": 60
+      },
+      "cue_only_accuracy": 0.9,
+      "majority_accuracy": 0.2,
+      "record_count": 300
+    },
+    "validation": {
+      "aligned_count": 55,
+      "aligned_rate": 0.9166666666666666,
+      "answer_counts": {
+        "circle": 12,
+        "pentagon": 12,
+        "rectangle": 12,
+        "square": 12,
+        "triangle": 12
+      },
+      "cue_only_accuracy": 0.9166666666666666,
+      "majority_accuracy": 0.2,
+      "record_count": 60
+    }
+  }
+}

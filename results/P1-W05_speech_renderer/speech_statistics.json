@@ -1,0 +1,10 @@
+{
+  "max_duration_seconds": 20.13233560090703,
+  "mean_duration_seconds": 11.043169883457258,
+  "min_duration_seconds": 8.136780045351474,
+  "n_mels": 64,
+  "sample_rate": 22050,
+  "token_count": 70471,
+  "total_duration_seconds": 18994.252199546485,
+  "utterance_count": 1720
+}

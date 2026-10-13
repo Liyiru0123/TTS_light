@@ -1,0 +1,17 @@
+{
+  "cue_frequencies": {
+    "cue_0": 300.0,
+    "cue_1": 450.0,
+    "cue_2": 600.0,
+    "cue_3": 750.0,
+    "cue_4": 900.0
+  },
+  "cue_utterance_counts": {
+    "cue_0": 88,
+    "cue_1": 93,
+    "cue_2": 91,
+    "cue_3": 94,
+    "cue_4": 94
+  },
+  "shortcut_utterance_count": 460
+}

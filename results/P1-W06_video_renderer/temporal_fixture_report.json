@@ -1,0 +1,9 @@
+{
+  "event_counts": {
+    "appear": 2,
+    "disappear": 1,
+    "move_end": 1,
+    "move_start": 1
+  },
+  "fixture_count": 1
+}

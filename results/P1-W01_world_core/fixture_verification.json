@@ -1,0 +1,36 @@
+{
+  "scene_count": 200,
+  "sha256": "43adb5dfa9531d584370d56e5f6840025e3a57747fb849ff4ccfee1bc0983528",
+  "statistics": {
+    "colors": {
+      "blue": 64,
+      "green": 74,
+      "orange": 61,
+      "purple": 80,
+      "red": 67,
+      "yellow": 59
+    },
+    "motions": {
+      "down": 87,
+      "left": 79,
+      "right": 73,
+      "static": 77,
+      "up": 89
+    },
+    "object_count": 405,
+    "scene_count": 200,
+    "shapes": {
+      "circle": 86,
+      "pentagon": 76,
+      "rectangle": 72,
+      "square": 82,
+      "triangle": 89
+    },
+    "sizes": {
+      "large": 140,
+      "medium": 145,
+      "small": 120
+    }
+  },
+  "verified": true
+}

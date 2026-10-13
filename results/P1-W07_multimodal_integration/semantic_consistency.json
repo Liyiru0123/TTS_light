@@ -1,0 +1,13 @@
+{
+  "asset_hash_mismatch_count": 0,
+  "continuous_center_mismatch_count": 0,
+  "cue_mismatch_count": 0,
+  "generation_condition_mismatch_count": 0,
+  "identity_mismatch_count": 0,
+  "image_video_pixel_center_different_scene_count": 23,
+  "max_image_video_pixel_center_delta": 1,
+  "object_attribute_mismatch_count": 0,
+  "object_identity_mismatch_count": 0,
+  "task_answer_mismatch_count": 0,
+  "text_speech_mismatch_count": 0
+}

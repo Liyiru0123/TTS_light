@@ -17,7 +17,7 @@ def main():
     args = ap.parse_args()
     ROOT = Path(args.root).resolve() if args.root else Path(__file__).resolve().parents[1]
     t = time.time()
-    for s in ["scripts/p3_w03_prepare_data.py", "scripts/p3_w03_train.py"]:
+    for s in ["scripts/p3_w02_i002_prepare_data.py", "scripts/p3_w03_prepare_data.py", "scripts/p3_w03_train.py"]:
         cmd = [sys.executable, str(ROOT / s)]
         if s.endswith("p3_w03_train.py"):
             cmd += ["--config", args.config]

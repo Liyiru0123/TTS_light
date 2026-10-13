@@ -1,0 +1,8 @@
+{
+  "access_note": "Classic Windows PowerShell STA; restricted sandboxes require local speech-service permission",
+  "channels": 1,
+  "probe": "SUCCESS",
+  "sample_rate": 22050,
+  "subtype": "PCM_16",
+  "voice_name": "Microsoft Huihui Desktop"
+}

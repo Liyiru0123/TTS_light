@@ -1,0 +1,46 @@
+{
+  "batch_shapes": {
+    "image": [
+      2,
+      3,
+      64,
+      64
+    ],
+    "logmel": [
+      2,
+      64,
+      1155
+    ],
+    "logmel_lengths": [
+      2
+    ],
+    "logmel_mask": [
+      2,
+      1155
+    ],
+    "video": [
+      2,
+      8,
+      3,
+      64,
+      64
+    ],
+    "waveform": [
+      2,
+      296126
+    ],
+    "waveform_lengths": [
+      2
+    ],
+    "waveform_mask": [
+      2,
+      296126
+    ]
+  },
+  "cached_full_sample_seconds": 0.0005460000029415824,
+  "export_seconds": 2.4297961999982363,
+  "first_full_sample_seconds": 0.004554000006464776,
+  "initialization_seconds": 0.33573769999929937,
+  "two_sample_collate_seconds": 0.03062789999967208,
+  "verification_seconds": 1.9598837999947136
+}

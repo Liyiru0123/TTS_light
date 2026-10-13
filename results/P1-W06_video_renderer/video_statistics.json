@@ -1,0 +1,12 @@
+{
+  "event_counts": {
+    "appear": 2544,
+    "move_end": 2011,
+    "move_start": 2011
+  },
+  "frame_count": 13760,
+  "moving_track_count": 2011,
+  "static_track_count": 533,
+  "track_count": 2544,
+  "video_count": 1720
+}

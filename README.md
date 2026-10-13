@@ -1,3 +1,15 @@
+# TTS_light
+
+本仓库是 liyiru 的 TTS 毕业设计实验仓库，基于 [solehome2/mini_multimodal](https://gitee.com/solehome2/mini_multimodal)；保留原项目历史、署名与 LICENSE，仅按原许可用于教学实验。以下保留原项目说明。
+
+当前本地改动：TTS 单步入口先调用原版 `p3_w02_i002_prepare_data.py`，补齐训练需要的 80 维梅尔频谱。模型结构和损失公式沿用原版。
+
+本仓库包含本机生成报告、TTS 训练记录和音频样例；完整生成数据 `data/` 与虚拟环境不上传，按运行手册在本机生成。`seed/` 是原项目提供的最小样本。
+
+权重区分：`results/P3-W03_tiny_tts/checkpoints/best.pt` 和 `last.pt` 是本机基础版训练结果；原始教学权重另存为同目录 `bundled_teaching_best.pt`（SHA-256 前缀 `82a297bc8f42`，教学候选、非正式发布）。原 `manifest_sha256.md` 描述随包权重，其 TTS `best.pt` 条目不适用于当前重新训练的文件。训练记录见 `results/P3-W03_tiny_tts/metrics/training_history.json`。使用基础版训练结果时需匹配 `configs/p3_w03_tiny_tts.json`，不能直接将其视为 I004 教学版。
+
+---
+
 # 多模态数据处理与应用 · 课程最小系统（gitee 安装包）
 
 > 版本基：P3-W05 六类模型集成验收（2026-08-22 教师确认）

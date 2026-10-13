@@ -1,0 +1,43 @@
+{
+  "background_mismatch_count": 0,
+  "cue_backgrounds": {
+    "cue_0": [
+      244,
+      244,
+      244
+    ],
+    "cue_1": [
+      228,
+      228,
+      228
+    ],
+    "cue_2": [
+      212,
+      212,
+      212
+    ],
+    "cue_3": [
+      196,
+      196,
+      196
+    ],
+    "cue_4": [
+      180,
+      180,
+      180
+    ]
+  },
+  "cue_image_counts": {
+    "cue_0": 88,
+    "cue_1": 93,
+    "cue_2": 91,
+    "cue_3": 94,
+    "cue_4": 94
+  },
+  "neutral_background": [
+    248,
+    248,
+    248
+  ],
+  "shortcut_image_count": 460
+}

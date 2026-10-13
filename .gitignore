@@ -34,3 +34,6 @@ nul
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Personal meeting notes are kept locally.
+/会议纪要/

@@ -1,0 +1,43 @@
+{
+  "color_counts": {
+    "blue": 451,
+    "green": 423,
+    "orange": 381,
+    "purple": 408,
+    "red": 450,
+    "yellow": 431
+  },
+  "image_count": 1720,
+  "image_height": 64,
+  "image_width": 64,
+  "object_count": 2544,
+  "occluded_object_count": 175,
+  "pool_counts": {
+    "compositional": 460,
+    "core": 800,
+    "shortcut": 460
+  },
+  "shape_counts": {
+    "circle": 506,
+    "pentagon": 507,
+    "rectangle": 504,
+    "square": 478,
+    "triangle": 549
+  },
+  "size_counts": {
+    "large": 849,
+    "medium": 835,
+    "small": 860
+  },
+  "split_counts": {
+    "test": 300,
+    "train": 1200,
+    "validation": 220
+  },
+  "variant_counts": {
+    "compositional": 460,
+    "counterfactual": 100,
+    "normal": 800,
+    "shortcut_iid": 360
+  }
+}

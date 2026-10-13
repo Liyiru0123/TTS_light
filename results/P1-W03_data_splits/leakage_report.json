@@ -1,0 +1,43 @@
+{
+  "duplicate_record_id_count": 0,
+  "duplicate_scene_id_count": 0,
+  "missing_scene_references": [],
+  "pools": {
+    "compositional": {
+      "question_intersections": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "scene_intersections": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      }
+    },
+    "core": {
+      "question_intersections": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "scene_intersections": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      }
+    },
+    "shortcut": {
+      "question_intersections": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      },
+      "scene_intersections": {
+        "train_test": 0,
+        "train_validation": 0,
+        "validation_test": 0
+      }
+    }
+  }
+}

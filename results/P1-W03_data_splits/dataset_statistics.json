@@ -1,0 +1,56 @@
+{
+  "compositional": {
+    "record_count": 460,
+    "scene_count": 460,
+    "splits": {
+      "test": {
+        "record_count": 100,
+        "scene_count": 100
+      },
+      "train": {
+        "record_count": 300,
+        "scene_count": 300
+      },
+      "validation": {
+        "record_count": 60,
+        "scene_count": 60
+      }
+    }
+  },
+  "core": {
+    "record_count": 10243,
+    "scene_count": 800,
+    "splits": {
+      "test": {
+        "record_count": 1298,
+        "scene_count": 100
+      },
+      "train": {
+        "record_count": 7667,
+        "scene_count": 600
+      },
+      "validation": {
+        "record_count": 1278,
+        "scene_count": 100
+      }
+    }
+  },
+  "shortcut": {
+    "record_count": 460,
+    "scene_count": 460,
+    "splits": {
+      "test": {
+        "record_count": 100,
+        "scene_count": 100
+      },
+      "train": {
+        "record_count": 300,
+        "scene_count": 300
+      },
+      "validation": {
+        "record_count": 60,
+        "scene_count": 60
+      }
+    }
+  }
+}

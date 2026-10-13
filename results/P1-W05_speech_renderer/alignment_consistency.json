@@ -1,0 +1,7 @@
+{
+  "alignment_time_scale_max": 0.7439199612270284,
+  "alignment_time_scale_min": 0.7329044513740648,
+  "consistency_error_count": 0,
+  "method": "SSML relative marks with utterance-level affine clock calibration",
+  "utterance_count": 1720
+}

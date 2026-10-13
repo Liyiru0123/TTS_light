@@ -1,0 +1,9 @@
+{
+  "adjusted_frame_object_count": 325,
+  "event_mismatch_scene_count": 0,
+  "max_projection_adjustment_pixels": 1,
+  "motion_reverse_step_count": 0,
+  "spatial_order_violation_count": 0,
+  "static_coordinate_jitter_count": 0,
+  "visibility_mismatch_count": 0
+}

@@ -1,0 +1,10 @@
+{
+  "adjusted_object_count": 34,
+  "bbox_or_area_mismatch_count": 0,
+  "fully_occluded_object_count": 0,
+  "max_quantization_adjustment_pixels": 1,
+  "out_of_bounds_count": 0,
+  "relation_order_violation_count": 0,
+  "relation_record_count": 2200,
+  "rle_mismatch_count": 0
+}
